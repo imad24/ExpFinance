@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="27d8e776527f4e10881d0f9979b3f2b3" Name="Diagram1" ZoomLevel="57">
+        <EntityTypeShape EntityType="ExpFinanceModel.AVOIR_FINANCIER" Width="3.25" PointX="6.625" PointY="5.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="ExpFinanceModel.BANQUE" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="ExpFinanceModel.CHEQUE" Width="1.5" PointX="11.625" PointY="4.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="ExpFinanceModel.FACTURE" Width="1.5" PointX="0.875" PointY="9.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="ExpFinanceModel.GROUPE_FACTURE" Width="2.5" PointX="4.125" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExpFinanceModel.PROMOTION" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="ExpFinanceModel.AF_DOSSIER_PROMO" Width="1.5" PointX="9" PointY="10.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="ExpFinanceModel.AF_FACTURES_CLIENTS" Width="2.875" PointX="9.375" PointY="7.25" IsExpanded="false" />
+        <EntityTypeShape EntityType="ExpFinanceModel.AF_MARGE_FACTURES" Width="1.5" PointX="5.75" PointY="10" IsExpanded="false" />
+        <AssociationConnector Association="ExpFinanceModel.FK_CHEQUE_AVOIR_FINANCIER" />
+        <AssociationConnector Association="ExpFinanceModel.FK_CHEQUE_BANQUE" />
+        <AssociationConnector Association="ExpFinanceModel.FK_GROUPE_FACTURE_PROMOTION" />
+        <EntityTypeShape EntityType="ExpFinanceModel.AF_CLIENT" Width="1.5" PointX="7.75" PointY="10" IsExpanded="false" />
+        <EntityTypeShape EntityType="ExpFinanceModel.AF_FACTURE" Width="1.5" PointX="7.5" PointY="13.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="ExpFinanceModel.AF_GROUPE_FACTURE" Width="2.25" PointX="4.75" PointY="13.375" IsExpanded="false" />
+        <AssociationConnector Association="ExpFinanceModel.FK_AF_FACTURE_AF_GROUPE_FACTURE" />
+        <EntityTypeShape EntityType="ExpFinanceModel.LISTE_SPONSOR" Width="1.5" PointX="0.5" PointY="2" IsExpanded="false" />
+        <EntityTypeShape EntityType="ExpFinanceModel.SPONSORISER" Width="1.5" PointX="0.875" PointY="0.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="ExpFinanceModel.AF_ETAT_AVOIR" Width="1.5" PointX="1.4659987210603425" PointY="5.219674172447843" IsExpanded="false" />
+        <AssociationConnector Association="ExpFinanceModel.FK_AF_ETAT_AVOIR_AVOIR_FINANCIER" />
+        <EntityTypeShape EntityType="ExpFinanceModel.AF_AVOIR_GROUPE" Width="1.5" PointX="8" PointY="3.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="ExpFinanceModel.AF_UTILISATEUR" Width="1.5" PointX="3.375" PointY="4.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="ExpFinanceModel.AF_LIGNE_FACTURE" Width="1.5" PointX="9.75" PointY="13.375" IsExpanded="false" />
+        <AssociationConnector Association="ExpFinanceModel.FK_AF_LIGNE_FACTURE_AF_FACTURE" />
+        <EntityTypeShape EntityType="ExpFinanceModel.AF_PALIER_EF" Width="1.5" PointX="5.75" PointY="2.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="ExpFinanceModel.AF_FACTURES_CLIENTS_ALL" Width="2.125" PointX="0.75" PointY="13.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="ExpFinanceModel.AF_EF_FACTURE" Width="1.5" PointX="17.625" PointY="3.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="ExpFinanceModel.AF_EF_GROUPE_FACTURE" Width="1.5" PointX="15.375" PointY="1.25" IsExpanded="false" />
+        <AssociationConnector Association="ExpFinanceModel.FK_AF_EF_FACTURE_AF_EF_GROUPE_FACTURE" />
+        <EntityTypeShape EntityType="ExpFinanceModel.AF_EF_LIGNE_FACTURE" Width="1.5" PointX="19.875" PointY="4.125" IsExpanded="false" />
+        <AssociationConnector Association="ExpFinanceModel.FK_AF_EF_LIGNE_FACTURE_AF_EF_FACTURE" />
+        <EntityTypeShape EntityType="ExpFinanceModel.AF_TEMP_AVOIR_FINANCIER" Width="3.5" PointX="17.25" PointY="7.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="ExpFinanceModel.AF_TEMP_AVOIR_GROUPE" Width="3.625" PointX="18.125" PointY="13.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="ExpFinanceModel.AF_TEMP_DATA" Width="3.625" PointX="14.375" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExpFinanceModel.AF_TEMP_ETAT_AVOIR" Width="4" PointX="18.25" PointY="12.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="ExpFinanceModel.AF_TEMP_FACTURE" Width="4.25" PointX="18.125" PointY="13.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="ExpFinanceModel.AF_TEMP_GROUPE_FACTURE" Width="4.875" PointX="22.375" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExpFinanceModel.AF_TEMP_DATA_ANT" Width="2.875" PointX="17.25" PointY="6.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="ExpFinanceModel.AF_FACTURES_CLIENTS_ALL_YEARS" Width="1.5" PointX="12.375" PointY="12.75" />
+        <EntityTypeShape EntityType="ExpFinanceModel.AF_OPS_LOG" Width="1.5" PointX="0.75" PointY="6.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

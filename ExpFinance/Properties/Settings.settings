@@ -1,0 +1,26 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ExpFinance.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="reportDetailsFacture" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/ExpFinance/test/DetailsFactureReport</Value>
+    </Setting>
+    <Setting Name="ExpFinanceConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=to-report;Initial Catalog=DEPENSE_CLIENT;Persist Security Info=True;User ID=ExpFinance;Password=ExpFinance2016&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=to-report;Initial Catalog=DEPENSE_CLIENT;Persist Security Info=True;User ID=ExpFinance;Password=ExpFinance2016</Value>
+    </Setting>
+    <Setting Name="reportServerURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://bmsql2/reportserver</Value>
+    </Setting>
+    <Setting Name="report" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://bmsql2/Reports/Pages/Folder.aspx?ItemPath=%2fExpFinance</Value>
+    </Setting>
+    <Setting Name="entite" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">HYDRAPHARM</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

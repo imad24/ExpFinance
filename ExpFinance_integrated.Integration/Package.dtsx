@@ -1,0 +1,1518 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/18/2016 4:36:25 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BMDGIRAHMOUNI"
+  DTS:CreatorName="GHP\imad.rahmouni"
+  DTS:DTSID="{55597D48-6530-410F-A0A0-A989C9CAF7C0}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.1100.286"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{87B34B32-974B-4E2E-8FE6-4F3A2426BF28}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ad-report.DEPENSE_CLIENT.ExpFinance]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{603BA34D-E3D9-4B46-B5B2-6DAD7D8BCFB5}"
+      DTS:ObjectName="ad-report.DEPENSE_CLIENT.ExpFinance">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ad-report;User ID=ExpFinance;Initial Catalog=DEPENSE_CLIENT;Provider=SQLNCLI10.1;Persist Security Info=True;Application Name=SSIS-Package-{603BA34D-E3D9-4B46-B5B2-6DAD7D8BCFB5}ad-report.DEPENSE_CLIENT.ExpFinance;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAABHTyMOGMKUCR0kMaMeRp8AAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADBiMBpIJ48WqohssBdNYHQAAAAAASAAACgAAAAEAAAAMZiPOBtuarTLvY3SKk993cgAAAARkaKYDB61+mrtEzfxPyTZY3JiBd6wULUxTXsiWhgWXkUAAAABfmRcox7TbQJroHS9NU7dIfmVKk</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[bmsql2.DEPENSE_CLIENT.ExpFinance]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{102A1749-3CB8-47FE-8DD1-6302B4863B73}"
+      DTS:ObjectName="bmsql2.DEPENSE_CLIENT.ExpFinance">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=bmsql2;User ID=ExpFinance;Initial Catalog=DEPENSE_CLIENT;Provider=SQLNCLI10.1;Persist Security Info=True;Application Name=SSIS-Package-{102A1749-3CB8-47FE-8DD1-6302B4863B73}bmsql2.DEPENSE_CLIENT.ExpFinance;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAABHTyMOGMKUCR0kMaMeRp8AAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADiuqofGvqTmEeVlgq+bKbuAAAAAASAAACgAAAAEAAAADTveqBeLxG4+LM2/pYTEzUgAAAAwb93Rqs+tUAd8SYCzxHjsjCUFgu56UeBM/ZidcguOasUAAAAD1Gs6dJaAuoD+5Zs9skv6C1yFlI</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[stf-report.DEPENSE_CLIENT.ExpFinance]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{53CCBBA2-AA67-437F-98E0-9CA037D1A07E}"
+      DTS:ObjectName="stf-report.DEPENSE_CLIENT.ExpFinance">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=stf-report;User ID=ExpFinance;Initial Catalog=DEPENSE_CLIENT;Provider=SQLNCLI10.1;Persist Security Info=True;Application Name=SSIS-Package-{53CCBBA2-AA67-437F-98E0-9CA037D1A07E}stf-report.DEPENSE_CLIENT.ExpFinance;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAABHTyMOGMKUCR0kMaMeRp8AAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADRN4A115CRDQ4sIF6VKMhFAAAAAASAAACgAAAAEAAAACwmkH4uBy609AWDR/MMBb4gAAAAGodEP9KmqKpFcoH9GuFslxuUVbAaIKULtRIhPlc4BbIUAAAA2HEmOncEMclsQoUdgh22OBb8PXs</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[to-report.DEPENSE_CLIENT.ExpFinance]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{DA2F432A-68D0-4B6D-9783-7F0CCF20C081}"
+      DTS:ObjectName="to-report.DEPENSE_CLIENT.ExpFinance">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=to-report;User ID=ExpFinance;Initial Catalog=DEPENSE_CLIENT;Provider=SQLNCLI10.1;Persist Security Info=True;Application Name=SSIS-Package-{DA2F432A-68D0-4B6D-9783-7F0CCF20C081}to-report.DEPENSE_CLIENT.ExpFinance;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAABHTyMOGMKUCR0kMaMeRp8AAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACmePZwV9bab75zBh4+VSKwAAAAAASAAACgAAAAEAAAABJJJ3zspnXri49L1QCDqGUgAAAAXDKzj89jMNzTmWwiWqScHoNU+YDfjCxT4ZF/0Z8xqV0UAAAA/cZhwu7fknuIoWukRZA8j/Kt5V4</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ABCMED"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{105C9E68-D67E-48A5-8DB2-BC33AB17F954}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ABCMED"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DEFMED"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{91D052C1-CE79-45A2-963D-DA6E9E8F54C3}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DEFMED"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{D605261D-C70A-4596-95EE-B06F76FFBC79}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016 RC0; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{102A1749-3CB8-47FE-8DD1-6302B4863B73}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="delete   from af_avoir_groupe_all &#xA;delete    from AF_ETAT_AVOIR_ALL &#xA;delete    from AF_FACTURE_ALL &#xA;delete    from AF_GROUPE_FACTURE_ALL &#xA;delete    from AVOIR_FINANCIER_ALL " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\GHMED"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{0DF1706A-908B-4B95-AEA5-C82263134AD5}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="GHMED"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\HYDRAPHARM"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{28B403A6-BFDC-4E24-933D-169F334E2006}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="HYDRAPHARM"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\HYDRAPHARM\Avoir Financier"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Avoir Financier"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[AVOIR_FINANCIER]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\HYDRAPHARM\Avoir Financier.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[bmsql2.DEPENSE_CLIENT.ExpFinance]"
+                  connectionManagerRefId="Package.ConnectionManagers[bmsql2.DEPENSE_CLIENT.ExpFinance]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].Columns[numAvoir]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].ExternalColumns[numAvoir]"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].Columns[numAvoir]"
+                      name="numAvoir"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].Columns[dateAvoir]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].ExternalColumns[dateAvoir]"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].Columns[dateAvoir]"
+                      name="dateAvoir"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].Columns[montant]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].ExternalColumns[montant]"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].Columns[montant]"
+                      name="montant"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].Columns[numAvoirComptable]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].ExternalColumns[numAvoirComptable]"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].Columns[numAvoirComptable]"
+                      name="numAvoirComptable"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].Columns[designation]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].ExternalColumns[designation]"
+                      length="50"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].Columns[designation]"
+                      name="designation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].Columns[montantCheque]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].ExternalColumns[montantCheque]"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].Columns[montantCheque]"
+                      name="montantCheque"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].Columns[montantCreance]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].ExternalColumns[montantCreance]"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].Columns[montantCreance]"
+                      name="montantCreance"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].Columns[Observation]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].ExternalColumns[Observation]"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].Columns[Observation]"
+                      name="Observation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].Columns[typeAvoir]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].ExternalColumns[typeAvoir]"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].Columns[typeAvoir]"
+                      name="typeAvoir"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].ExternalColumns[numAvoir]"
+                      dataType="i4"
+                      name="numAvoir" />
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].ExternalColumns[dateAvoir]"
+                      dataType="dbDate"
+                      name="dateAvoir" />
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].ExternalColumns[montant]"
+                      dataType="numeric"
+                      name="montant"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].ExternalColumns[numAvoirComptable]"
+                      dataType="i4"
+                      name="numAvoirComptable" />
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].ExternalColumns[designation]"
+                      dataType="wstr"
+                      length="50"
+                      name="designation" />
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].ExternalColumns[montantCheque]"
+                      dataType="numeric"
+                      name="montantCheque"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].ExternalColumns[montantCreance]"
+                      dataType="numeric"
+                      name="montantCreance"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].ExternalColumns[Observation]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Observation" />
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].ExternalColumns[typeAvoir]"
+                      dataType="ui1"
+                      name="typeAvoir" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Error Output].Columns[numAvoir]"
+                      dataType="i4"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Error Output].Columns[numAvoir]"
+                      name="numAvoir" />
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Error Output].Columns[dateAvoir]"
+                      dataType="dbDate"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Error Output].Columns[dateAvoir]"
+                      name="dateAvoir" />
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Error Output].Columns[montant]"
+                      dataType="numeric"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Error Output].Columns[montant]"
+                      name="montant"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Error Output].Columns[numAvoirComptable]"
+                      dataType="i4"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Error Output].Columns[numAvoirComptable]"
+                      name="numAvoirComptable" />
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Error Output].Columns[designation]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Error Output].Columns[designation]"
+                      name="designation" />
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Error Output].Columns[montantCheque]"
+                      dataType="numeric"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Error Output].Columns[montantCheque]"
+                      name="montantCheque"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Error Output].Columns[montantCreance]"
+                      dataType="numeric"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Error Output].Columns[montantCreance]"
+                      name="montantCreance"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Error Output].Columns[Observation]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Error Output].Columns[Observation]"
+                      name="Observation" />
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Error Output].Columns[typeAvoir]"
+                      dataType="ui1"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Error Output].Columns[typeAvoir]"
+                      name="typeAvoir" />
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\HYDRAPHARM\Avoir Financier 1"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Avoir Financier 1"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[AF_AVOIR_GROUPE_ALL]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\HYDRAPHARM\Avoir Financier 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[bmsql2.DEPENSE_CLIENT.ExpFinance]"
+                  connectionManagerRefId="Package.ConnectionManagers[bmsql2.DEPENSE_CLIENT.ExpFinance]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\HYDRAPHARM\Avoir Financier 1.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier 1.Outputs[OLE DB Source Output].Columns[numAvoir]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HYDRAPHARM\Avoir Financier 1.Outputs[OLE DB Source Output].ExternalColumns[numAvoir]"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier 1.Outputs[OLE DB Source Output].Columns[numAvoir]"
+                      name="numAvoir"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier 1.Outputs[OLE DB Source Output].Columns[entite]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HYDRAPHARM\Avoir Financier 1.Outputs[OLE DB Source Output].ExternalColumns[entite]"
+                      length="20"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier 1.Outputs[OLE DB Source Output].Columns[entite]"
+                      name="entite"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier 1.Outputs[OLE DB Source Output].Columns[IDG]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HYDRAPHARM\Avoir Financier 1.Outputs[OLE DB Source Output].ExternalColumns[IDG]"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier 1.Outputs[OLE DB Source Output].Columns[IDG]"
+                      name="IDG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier 1.Outputs[OLE DB Source Output].Columns[Libre]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HYDRAPHARM\Avoir Financier 1.Outputs[OLE DB Source Output].ExternalColumns[Libre]"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier 1.Outputs[OLE DB Source Output].Columns[Libre]"
+                      name="Libre"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier 1.Outputs[OLE DB Source Output].ExternalColumns[numAvoir]"
+                      dataType="i4"
+                      name="numAvoir" />
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier 1.Outputs[OLE DB Source Output].ExternalColumns[entite]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="entite" />
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier 1.Outputs[OLE DB Source Output].ExternalColumns[IDG]"
+                      dataType="i4"
+                      name="IDG" />
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier 1.Outputs[OLE DB Source Output].ExternalColumns[Libre]"
+                      dataType="ui1"
+                      name="Libre" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\HYDRAPHARM\Avoir Financier 1.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier 1.Outputs[OLE DB Source Error Output].Columns[entite]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier 1.Outputs[OLE DB Source Error Output].Columns[entite]"
+                      name="entite" />
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier 1.Outputs[OLE DB Source Error Output].Columns[numAvoir]"
+                      dataType="i4"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier 1.Outputs[OLE DB Source Error Output].Columns[numAvoir]"
+                      name="numAvoir" />
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier 1.Outputs[OLE DB Source Error Output].Columns[IDG]"
+                      dataType="i4"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier 1.Outputs[OLE DB Source Error Output].Columns[IDG]"
+                      name="IDG" />
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier 1.Outputs[OLE DB Source Error Output].Columns[Libre]"
+                      dataType="ui1"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier 1.Outputs[OLE DB Source Error Output].Columns[Libre]"
+                      name="Libre" />
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Avoir Financier 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\HYDRAPHARM\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\HYDRAPHARM\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\HYDRAPHARM\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\HYDRAPHARM\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Derived Column.Outputs[Derived Column Output].Columns[entite]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\HYDRAPHARM\Derived Column.Outputs[Derived Column Output].Columns[entite]"
+                      name="entite"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,20,1252)"HYDRAPHARM"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,20,1252)"HYDRAPHARM"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\HYDRAPHARM\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\HYDRAPHARM\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\HYDRAPHARM\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\HYDRAPHARM\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\HYDRAPHARM\Derived Column 1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\HYDRAPHARM\Derived Column 1.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\HYDRAPHARM\Derived Column 1.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\HYDRAPHARM\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Derived Column 1.Outputs[Derived Column Output].Columns[entite]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\HYDRAPHARM\Derived Column 1.Outputs[Derived Column Output].Columns[entite]"
+                      name="entite"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,20,1252)"HYDRAPHARM"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,20,1252)"HYDRAPHARM"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\HYDRAPHARM\Derived Column 1.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\HYDRAPHARM\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\HYDRAPHARM\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\HYDRAPHARM\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\HYDRAPHARM\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[AVOIR_FINANCIER_ALL]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\HYDRAPHARM\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[bmsql2.DEPENSE_CLIENT.ExpFinance]"
+                  connectionManagerRefId="Package.ConnectionManagers[bmsql2.DEPENSE_CLIENT.ExpFinance]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[numAvoir]"
+                      cachedDataType="i4"
+                      cachedName="numAvoir"
+                      externalMetadataColumnId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[numAvoir]"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].Columns[numAvoir]" />
+                    <inputColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dateAvoir]"
+                      cachedDataType="dbDate"
+                      cachedName="dateAvoir"
+                      externalMetadataColumnId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dateAvoir]"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].Columns[dateAvoir]" />
+                    <inputColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[montant]"
+                      cachedDataType="numeric"
+                      cachedName="montant"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[montant]"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].Columns[montant]" />
+                    <inputColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[numAvoirComptable]"
+                      cachedDataType="i4"
+                      cachedName="numAvoirComptable"
+                      externalMetadataColumnId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[numAvoirComptable]"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].Columns[numAvoirComptable]" />
+                    <inputColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[designation]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="designation"
+                      externalMetadataColumnId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[designation]"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].Columns[designation]" />
+                    <inputColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[montantCheque]"
+                      cachedDataType="numeric"
+                      cachedName="montantCheque"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[montantCheque]"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].Columns[montantCheque]" />
+                    <inputColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[montantCreance]"
+                      cachedDataType="numeric"
+                      cachedName="montantCreance"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[montantCreance]"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].Columns[montantCreance]" />
+                    <inputColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Observation]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="Observation"
+                      externalMetadataColumnId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Observation]"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].Columns[Observation]" />
+                    <inputColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[typeAvoir]"
+                      cachedDataType="ui1"
+                      cachedName="typeAvoir"
+                      externalMetadataColumnId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[typeAvoir]"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output].Columns[typeAvoir]" />
+                    <inputColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[entite]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="entite"
+                      externalMetadataColumnId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[entite]"
+                      lineageId="Package\HYDRAPHARM\Derived Column.Outputs[Derived Column Output].Columns[entite]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[entite]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="entite" />
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[numAvoir]"
+                      dataType="i4"
+                      name="numAvoir" />
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dateAvoir]"
+                      dataType="dbDate"
+                      name="dateAvoir" />
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[montant]"
+                      dataType="numeric"
+                      name="montant"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[numAvoirComptable]"
+                      dataType="i4"
+                      name="numAvoirComptable" />
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[designation]"
+                      dataType="wstr"
+                      length="50"
+                      name="designation" />
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[montantCheque]"
+                      dataType="numeric"
+                      name="montantCheque"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[montantCreance]"
+                      dataType="numeric"
+                      name="montantCreance"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Observation]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Observation" />
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[typeAvoir]"
+                      dataType="ui1"
+                      name="typeAvoir" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\HYDRAPHARM\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\HYDRAPHARM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\HYDRAPHARM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\HYDRAPHARM\OLE DB Destination 1"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination 1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[AVOIR_FINANCIER_ALL]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\HYDRAPHARM\OLE DB Destination 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[bmsql2.DEPENSE_CLIENT.ExpFinance]"
+                  connectionManagerRefId="Package.ConnectionManagers[bmsql2.DEPENSE_CLIENT.ExpFinance]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\HYDRAPHARM\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[numAvoir]"
+                      cachedDataType="i4"
+                      cachedName="numAvoir"
+                      externalMetadataColumnId="Package\HYDRAPHARM\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[numAvoir]"
+                      lineageId="Package\HYDRAPHARM\Avoir Financier 1.Outputs[OLE DB Source Output].Columns[numAvoir]" />
+                    <inputColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[dateAvoir]"
+                      cachedDataType="dbDate"
+                      cachedName="dateAvoir"
+                      externalMetadataColumnId="Package\HYDRAPHARM\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[dateAvoir]"
+                      lineageId="Package\HYDRAPHARM\166:invalid" />
+                    <inputColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[montant]"
+                      cachedDataType="numeric"
+                      cachedName="montant"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\HYDRAPHARM\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[montant]"
+                      lineageId="Package\HYDRAPHARM\167:invalid" />
+                    <inputColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[numAvoirComptable]"
+                      cachedDataType="i4"
+                      cachedName="numAvoirComptable"
+                      externalMetadataColumnId="Package\HYDRAPHARM\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[numAvoirComptable]"
+                      lineageId="Package\HYDRAPHARM\168:invalid" />
+                    <inputColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[designation]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="designation"
+                      externalMetadataColumnId="Package\HYDRAPHARM\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[designation]"
+                      lineageId="Package\HYDRAPHARM\169:invalid" />
+                    <inputColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[montantCheque]"
+                      cachedDataType="numeric"
+                      cachedName="montantCheque"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\HYDRAPHARM\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[montantCheque]"
+                      lineageId="Package\HYDRAPHARM\170:invalid" />
+                    <inputColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[montantCreance]"
+                      cachedDataType="numeric"
+                      cachedName="montantCreance"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\HYDRAPHARM\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[montantCreance]"
+                      lineageId="Package\HYDRAPHARM\171:invalid" />
+                    <inputColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Observation]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="Observation"
+                      externalMetadataColumnId="Package\HYDRAPHARM\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Observation]"
+                      lineageId="Package\HYDRAPHARM\172:invalid" />
+                    <inputColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[typeAvoir]"
+                      cachedDataType="ui1"
+                      cachedName="typeAvoir"
+                      externalMetadataColumnId="Package\HYDRAPHARM\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[typeAvoir]"
+                      lineageId="Package\HYDRAPHARM\173:invalid" />
+                    <inputColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[entite]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="entite"
+                      externalMetadataColumnId="Package\HYDRAPHARM\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[entite]"
+                      lineageId="Package\HYDRAPHARM\Derived Column 1.Outputs[Derived Column Output].Columns[entite]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[entite]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="entite" />
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[numAvoir]"
+                      dataType="i4"
+                      name="numAvoir" />
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[dateAvoir]"
+                      dataType="dbDate"
+                      name="dateAvoir" />
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[montant]"
+                      dataType="numeric"
+                      name="montant"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[numAvoirComptable]"
+                      dataType="i4"
+                      name="numAvoirComptable" />
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[designation]"
+                      dataType="wstr"
+                      length="50"
+                      name="designation" />
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[montantCheque]"
+                      dataType="numeric"
+                      name="montantCheque"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[montantCreance]"
+                      dataType="numeric"
+                      name="montantCreance"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Observation]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Observation" />
+                    <externalMetadataColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[typeAvoir]"
+                      dataType="ui1"
+                      name="typeAvoir" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\HYDRAPHARM\OLE DB Destination 1.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\HYDRAPHARM\OLE DB Destination 1.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\HYDRAPHARM\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\HYDRAPHARM\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\HYDRAPHARM\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\HYDRAPHARM.Paths[Derived Column Output]"
+              endId="Package\HYDRAPHARM\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\HYDRAPHARM\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\HYDRAPHARM.Paths[OLE DB Source Output]"
+              endId="Package\HYDRAPHARM\Derived Column.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\HYDRAPHARM\Avoir Financier.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\HYDRAPHARM.Paths[OLE DB Source Output1]"
+              endId="Package\HYDRAPHARM\Derived Column 1.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\HYDRAPHARM\Avoir Financier 1.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{90C02CE4-81D5-4F65-9EC5-121BCA677E1D}"
+      DTS:From="Package\HYDRAPHARM"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\ABCMED" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{F0567210-5E76-4F51-9BB7-5CF9C0976017}"
+      DTS:From="Package\ABCMED"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\DEFMED" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{697BED22-19EC-4654-A194-465E6B581D8B}"
+      DTS:From="Package\DEFMED"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\GHMED" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="120,42"
+          Id="Package\ABCMED"
+          TopLeft="230,76" />
+        <NodeLayout
+          Size="115,42"
+          Id="Package\GHMED"
+          TopLeft="524,62" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\DEFMED"
+          TopLeft="400,128" />
+        <NodeLayout
+          Size="147,42"
+          Id="Package\HYDRAPHARM"
+          TopLeft="63,95" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="136.5,137">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="153.5,-19"
+              Start="0,0"
+              End="153.5,-11.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.5"
+                    Point2="0,22.5"
+                    Point3="4,22.5" />
+                  <mssgle:LineSegment
+                    End="149.5,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="149.5,22.5"
+                    Point2="153.5,22.5"
+                    Point3="153.5,18.5" />
+                  <mssgle:LineSegment
+                    End="153.5,-11.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="350,97">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="50,52"
+              Start="0,0"
+              End="42.5,52">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="21,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="21,0"
+                    Point2="25,0"
+                    Point3="25,4" />
+                  <mssgle:LineSegment
+                    End="25,48" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25,48"
+                    Point2="25,52"
+                    Point3="29,52" />
+                  <mssgle:LineSegment
+                    End="42.5,52" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="459.5,128">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="122,-24"
+              Start="0,0"
+              End="122,-16.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-8" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-8"
+                    Point2="0,-12"
+                    Point3="4,-12" />
+                  <mssgle:LineSegment
+                    End="118,-12" />
+                  <mssgle:CubicBezierSegment
+                    Point1="118,-12"
+                    Point2="122,-12"
+                    Point3="122,-16" />
+                  <mssgle:LineSegment
+                    End="122,-16.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Execute SQL Task"
+          TopLeft="38,28" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\HYDRAPHARM">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="148,42"
+          Id="Package\HYDRAPHARM\Avoir Financier"
+          TopLeft="93,26" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\HYDRAPHARM\OLE DB Destination"
+          TopLeft="540,32" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\HYDRAPHARM\Derived Column"
+          TopLeft="300,30" />
+        <EdgeLayout
+          Id="Package\HYDRAPHARM.Paths[OLE DB Source Output]"
+          TopLeft="241,49">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="59,0"
+              Start="0,0"
+              End="51.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="51.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\HYDRAPHARM.Paths[Derived Column Output]"
+          TopLeft="454,52">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="86,0"
+              Start="0,0"
+              End="78.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="78.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="148,43"
+          Id="Package\HYDRAPHARM\Avoir Financier 1"
+          TopLeft="93,98" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\HYDRAPHARM\OLE DB Destination 1"
+          TopLeft="542,108" />
+        <NodeLayout
+          Size="154,53"
+          Id="Package\HYDRAPHARM\Derived Column 1"
+          TopLeft="302,92" />
+        <EdgeLayout
+          Id="Package\HYDRAPHARM.Paths[OLE DB Source Output1]"
+          TopLeft="241,119">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="61,0"
+              Start="0,0"
+              End="53.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="53.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\HYDRAPHARM\Avoir Financier">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\HYDRAPHARM\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\HYDRAPHARM\Avoir Financier 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

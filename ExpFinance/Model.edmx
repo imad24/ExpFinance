@@ -1,0 +1,2593 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ExpFinanceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AF_AVOIR_GROUPE">
+          <Key>
+            <PropertyRef Name="numAvoir" />
+            <PropertyRef Name="IDG" />
+          </Key>
+          <Property Name="numAvoir" Type="int" Nullable="false" />
+          <Property Name="IDG" Type="int" Nullable="false" />
+          <Property Name="Libre" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AF_EF_FACTURE">
+          <Key>
+            <PropertyRef Name="ENTITE" />
+            <PropertyRef Name="NUM_FACT" />
+            <PropertyRef Name="DATE_FACT" />
+          </Key>
+          <Property Name="ENTITE" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="NUM_FACT" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DATE_FACT" Type="date" Nullable="false" />
+          <Property Name="MNT_HT_RZ" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MNT_RZ" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MNT_TTC" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MNT_TVA" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="CODE_CLIENT" Type="nvarchar" MaxLength="10" />
+          <Property Name="MARGE" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="ID_GROUPE_FACT" Type="int" />
+        </EntityType>
+        <EntityType Name="AF_EF_GROUPE_FACTURE">
+          <Key>
+            <PropertyRef Name="ID_GROUPE_FACT" />
+          </Key>
+          <Property Name="ID_GROUPE_FACT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ENTITE" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CODE_CLIENT" Type="nvarchar" MaxLength="10" />
+          <Property Name="MNT_HT" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MNT_TTC" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MNT_RZ" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MNT_TVA" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MARGE" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="REF_AVOIR_COMPT" Type="nvarchar" MaxLength="30" />
+          <Property Name="ID_LIGNE" Type="int" />
+          <Property Name="LIBELLE_CADEAU" Type="nvarchar" MaxLength="250" />
+          <Property Name="DATE_CADEAU" Type="date" />
+          <Property Name="REF_CHEQUE" Type="nvarchar" MaxLength="150" />
+          <Property Name="BANQUE" Type="nvarchar" MaxLength="90" />
+          <Property Name="AGENCE" Type="nvarchar" MaxLength="100" />
+          <Property Name="DATE_CHEQUE" Type="date" />
+          <Property Name="MONTANT_CHEQUE" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="REF_RISTOURNE" Type="nvarchar" MaxLength="150" />
+          <Property Name="DATE_RISTOURNE" Type="date" />
+          <Property Name="MONTANT_RISTOURNE" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="TYPE_PROMOTION" Type="nvarchar" MaxLength="50" />
+          <Property Name="NOM_ENDOSSE" Type="nvarchar" MaxLength="250" />
+          <Property Name="OBSERVATION" Type="nvarchar" MaxLength="250" />
+          <Property Name="MONTANT_CADEAU" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="NB_CADEAU" Type="int" />
+          <Property Name="MARGE_REST" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="TX_REST" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="ETAT" Type="int" />
+          <Property Name="NDOSSIER" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID_USER" Type="nvarchar" MaxLength="150" />
+          <Property Name="DATE_SAISIE" Type="datetime" />
+          <Property Name="DATE_MAJ" Type="datetime" />
+          <Property Name="TX_DEP_ATTEINT" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="DATE_DOSSIER" Type="datetime" />
+        </EntityType>
+        <EntityType Name="AF_EF_LIGNE_FACTURE">
+          <Key>
+            <PropertyRef Name="ENTITE" />
+            <PropertyRef Name="NUM_FACT" />
+            <PropertyRef Name="DATE_FACT" />
+            <PropertyRef Name="NUM_LIGNE" />
+          </Key>
+          <Property Name="ENTITE" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="NUM_FACT" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DATE_FACT" Type="date" Nullable="false" />
+          <Property Name="NUM_LIGNE" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AF_ETAT_AVOIR">
+          <Key>
+            <PropertyRef Name="pkey" />
+          </Key>
+          <Property Name="pkey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDG" Type="int" />
+          <Property Name="numDossier" Type="varchar" MaxLength="20" />
+          <Property Name="numAvoir" Type="int" />
+          <Property Name="Etat" Type="tinyint" Nullable="false" />
+          <Property Name="observation" Type="text" />
+          <Property Name="dateHeure" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AF_FACTURE">
+          <Key>
+            <PropertyRef Name="ENTITE" />
+            <PropertyRef Name="NUM_FACT" />
+            <PropertyRef Name="DATE_FACT" />
+          </Key>
+          <Property Name="ENTITE" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="NUM_FACT" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DATE_FACT" Type="date" Nullable="false" />
+          <Property Name="MNT_HT_RZ" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MNT_RZ" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MNT_TTC" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MNT_TVA" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="CODE_CLIENT" Type="nvarchar" MaxLength="10" />
+          <Property Name="MARGE" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="ID_GROUPE_FACT" Type="int" />
+        </EntityType>
+        <EntityType Name="AF_GROUPE_FACTURE">
+          <Key>
+            <PropertyRef Name="ID_GROUPE_FACT" />
+          </Key>
+          <Property Name="ID_GROUPE_FACT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ENTITE" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CODE_CLIENT" Type="nvarchar" MaxLength="10" />
+          <Property Name="MNT_HT" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MNT_TTC" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MNT_RZ" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MNT_TVA" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MARGE" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="REF_AVOIR_COMPT" Type="nvarchar" MaxLength="30" />
+          <Property Name="ID_LIGNE" Type="int" />
+          <Property Name="LIBELLE_CADEAU" Type="nvarchar" MaxLength="250" />
+          <Property Name="DATE_CADEAU" Type="date" />
+          <Property Name="REF_CHEQUE" Type="nvarchar" MaxLength="150" />
+          <Property Name="BANQUE" Type="nvarchar" MaxLength="90" />
+          <Property Name="AGENCE" Type="nvarchar" MaxLength="100" />
+          <Property Name="DATE_CHEQUE" Type="date" />
+          <Property Name="MONTANT_CHEQUE" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="REF_RISTOURNE" Type="nvarchar" MaxLength="150" />
+          <Property Name="DATE_RISTOURNE" Type="date" />
+          <Property Name="MONTANT_RISTOURNE" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="TYPE_PROMOTION" Type="nvarchar" MaxLength="50" />
+          <Property Name="NOM_ENDOSSE" Type="nvarchar" MaxLength="250" />
+          <Property Name="OBSERVATION" Type="nvarchar" MaxLength="250" />
+          <Property Name="MONTANT_CADEAU" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="NB_CADEAU" Type="int" />
+          <Property Name="MARGE_REST" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="TX_REST" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="ETAT" Type="int" />
+          <Property Name="NDOSSIER" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID_USER" Type="nvarchar" MaxLength="150" />
+          <Property Name="DATE_SAISIE" Type="datetime" />
+          <Property Name="DATE_MAJ" Type="datetime" />
+          <Property Name="TX_DEP_ATTEINT" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="DATE_DOSSIER" Type="datetime" />
+        </EntityType>
+        <EntityType Name="AF_LIGNE_FACTURE">
+          <Key>
+            <PropertyRef Name="ENTITE" />
+            <PropertyRef Name="NUM_FACT" />
+            <PropertyRef Name="DATE_FACT" />
+            <PropertyRef Name="NUM_LIGNE" />
+          </Key>
+          <Property Name="ENTITE" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="NUM_FACT" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DATE_FACT" Type="date" Nullable="false" />
+          <Property Name="NUM_LIGNE" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AF_OPS_LOG">
+          <Key>
+            <PropertyRef Name="pkey" />
+          </Key>
+          <Property Name="pkey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Operation" Type="nvarchar" MaxLength="100" />
+          <Property Name="username" Type="nvarchar" MaxLength="100" />
+          <Property Name="numavoir" Type="int" />
+          <Property Name="numdossier" Type="nvarchar" MaxLength="100" />
+          <Property Name="instant" Type="datetime" />
+          <Property Name="idg" Type="int" />
+        </EntityType>
+        <EntityType Name="AF_PALIER_EF">
+          <Key>
+            <PropertyRef Name="idPalier" />
+          </Key>
+          <Property Name="idPalier" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DebutPalier" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="FinPalier" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Percentage" Type="decimal" Precision="3" Scale="2" Nullable="false" />
+          <Property Name="actif" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AF_TEMP_AVOIR_FINANCIER">
+          <Key>
+            <PropertyRef Name="numAvoir" />
+          </Key>
+          <Property Name="numAvoir" Type="int" Nullable="false" />
+          <Property Name="dateAvoir" Type="date" Nullable="false" />
+          <Property Name="montant" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="numAvoirComptable" Type="int" />
+          <Property Name="designation" Type="nvarchar" MaxLength="50" />
+          <Property Name="montantCheque" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="montantCreance" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Observation" Type="text" />
+          <Property Name="typeAvoir" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AF_TEMP_AVOIR_GROUPE">
+          <Key>
+            <PropertyRef Name="numAvoir" />
+            <PropertyRef Name="IDG" />
+            <PropertyRef Name="Libre" />
+          </Key>
+          <Property Name="numAvoir" Type="int" Nullable="false" />
+          <Property Name="IDG" Type="int" Nullable="false" />
+          <Property Name="Libre" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AF_TEMP_DATA">
+          <Key>
+            <PropertyRef Name="numAvoir" />
+            <PropertyRef Name="entite" />
+          </Key>
+          <Property Name="refAvoir" Type="nvarchar" MaxLength="50" />
+          <Property Name="numAvoir" Type="int" Nullable="false" />
+          <Property Name="dateAvoir" Type="date" Nullable="false" />
+          <Property Name="Montant" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="cheque" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="creance" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="typeAvoir" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="codeClient" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="factures" Type="varchar" MaxLength="2000" />
+          <Property Name="entite" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="idgroupe" Type="int" />
+        </EntityType>
+        <EntityType Name="AF_TEMP_DATA_ANT">
+          <Key>
+            <PropertyRef Name="numAvoir" />
+            <PropertyRef Name="entite" />
+          </Key>
+          <Property Name="refAvoir" Type="nvarchar" MaxLength="50" />
+          <Property Name="numAvoir" Type="int" Nullable="false" />
+          <Property Name="dateAvoir" Type="date" />
+          <Property Name="Montant" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="cheque" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="creance" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="typeAvoir" Type="nchar" MaxLength="10" />
+          <Property Name="CA" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Exercice" Type="date" />
+          <Property Name="codeClient" Type="nvarchar" MaxLength="50" />
+          <Property Name="factures" Type="nvarchar" MaxLength="255" />
+          <Property Name="entite" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="idgroupe" Type="int" />
+        </EntityType>
+        <EntityType Name="AF_TEMP_ETAT_AVOIR">
+          <Key>
+            <PropertyRef Name="pkey" />
+          </Key>
+          <Property Name="pkey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDG" Type="int" />
+          <Property Name="numDossier" Type="varchar" MaxLength="20" />
+          <Property Name="numAvoir" Type="int" />
+          <Property Name="Etat" Type="tinyint" Nullable="false" />
+          <Property Name="observation" Type="text" />
+          <Property Name="dateHeure" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AF_TEMP_FACTURE">
+          <Key>
+            <PropertyRef Name="ENTITE" />
+            <PropertyRef Name="NUM_FACT" />
+            <PropertyRef Name="DATE_FACT" />
+          </Key>
+          <Property Name="ENTITE" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="NUM_FACT" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DATE_FACT" Type="date" Nullable="false" />
+          <Property Name="MNT_HT_RZ" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MNT_RZ" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MNT_TTC" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MNT_TVA" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="CODE_CLIENT" Type="nvarchar" MaxLength="10" />
+          <Property Name="MARGE" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="ID_GROUPE_FACT" Type="int" />
+        </EntityType>
+        <EntityType Name="AF_TEMP_GROUPE_FACTURE">
+          <Key>
+            <PropertyRef Name="ID_GROUPE_FACT" />
+          </Key>
+          <Property Name="ID_GROUPE_FACT" Type="int" Nullable="false" />
+          <Property Name="ENTITE" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CODE_CLIENT" Type="nvarchar" MaxLength="10" />
+          <Property Name="MNT_HT" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MNT_TTC" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MNT_RZ" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MNT_TVA" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MARGE" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="REF_AVOIR_COMPT" Type="nvarchar" MaxLength="30" />
+          <Property Name="ID_LIGNE" Type="int" />
+          <Property Name="LIBELLE_CADEAU" Type="nvarchar" MaxLength="250" />
+          <Property Name="DATE_CADEAU" Type="date" />
+          <Property Name="REF_CHEQUE" Type="nvarchar" MaxLength="150" />
+          <Property Name="BANQUE" Type="nvarchar" MaxLength="90" />
+          <Property Name="AGENCE" Type="nvarchar" MaxLength="100" />
+          <Property Name="DATE_CHEQUE" Type="date" />
+          <Property Name="MONTANT_CHEQUE" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="REF_RISTOURNE" Type="nvarchar" MaxLength="150" />
+          <Property Name="DATE_RISTOURNE" Type="date" />
+          <Property Name="MONTANT_RISTOURNE" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="TYPE_PROMOTION" Type="nvarchar" MaxLength="50" />
+          <Property Name="NOM_ENDOSSE" Type="nvarchar" MaxLength="250" />
+          <Property Name="OBSERVATION" Type="nvarchar" MaxLength="250" />
+          <Property Name="MONTANT_CADEAU" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="NB_CADEAU" Type="int" />
+          <Property Name="MARGE_REST" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="TX_REST" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="ETAT" Type="int" />
+          <Property Name="NDOSSIER" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID_USER" Type="nvarchar" MaxLength="150" />
+          <Property Name="DATE_SAISIE" Type="datetime" />
+          <Property Name="DATE_MAJ" Type="datetime" />
+          <Property Name="TX_DEP_ATTEINT" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="DATE_DOSSIER" Type="datetime" />
+        </EntityType>
+        <EntityType Name="AF_UTILISATEUR">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Nom" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Role" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="AVOIR_FINANCIER">
+          <Key>
+            <PropertyRef Name="numAvoir" />
+          </Key>
+          <Property Name="numAvoir" Type="int" Nullable="false" />
+          <Property Name="dateAvoir" Type="date" Nullable="false" />
+          <Property Name="montant" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="numAvoirComptable" Type="int" />
+          <Property Name="designation" Type="nvarchar" MaxLength="50" />
+          <Property Name="montantCheque" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="montantCreance" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Observation" Type="text" />
+          <Property Name="typeAvoir" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BANQUE">
+          <Key>
+            <PropertyRef Name="CODE_BANQUE" />
+          </Key>
+          <Property Name="ENTITE" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CODE_BANQUE" Type="int" Nullable="false" />
+          <Property Name="NOM_BANQUE" Type="nvarchar" MaxLength="125" />
+          <Property Name="BANQUE_DEPOT" Type="int" />
+          <Property Name="ADRESSE" Type="nvarchar" MaxLength="235" />
+          <Property Name="NUM_TELEPHONE" Type="nvarchar" MaxLength="105" />
+          <Property Name="ID_USER" Type="nvarchar" MaxLength="35" Nullable="false" />
+          <Property Name="DATE_SAISIE" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CHEQUE">
+          <Key>
+            <PropertyRef Name="ref" />
+          </Key>
+          <Property Name="ref" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numCheque" Type="nvarchar" MaxLength="50" />
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="codeBank" Type="int" Nullable="false" />
+          <Property Name="montant" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="nom" Type="nvarchar" MaxLength="50" />
+          <Property Name="description" Type="nvarchar" MaxLength="255" />
+          <Property Name="numAvoir" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FACTURE">
+          <Key>
+            <PropertyRef Name="ENTITE" />
+            <PropertyRef Name="NUM_FACT" />
+            <PropertyRef Name="DATE_FACT" />
+          </Key>
+          <Property Name="ENTITE" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="NUM_FACT" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DATE_FACT" Type="date" Nullable="false" />
+          <Property Name="MNT_HT_RZ" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MNT_RZ" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MNT_TTC" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MNT_TVA" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="CODE_CLIENT" Type="nvarchar" MaxLength="10" />
+          <Property Name="MARGE" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="ID_GROUPE_FACT" Type="int" />
+        </EntityType>
+        <EntityType Name="GROUPE_FACTURE">
+          <Key>
+            <PropertyRef Name="ID_GROUPE_FACT" />
+          </Key>
+          <Property Name="ID_GROUPE_FACT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ENTITE" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CODE_CLIENT" Type="nvarchar" MaxLength="10" />
+          <Property Name="MNT_HT" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MNT_TTC" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MNT_RZ" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MNT_TVA" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MARGE" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="REF_AVOIR_COMPT" Type="nvarchar" MaxLength="30" />
+          <Property Name="ID_LIGNE" Type="int" />
+          <Property Name="LIBELLE_CADEAU" Type="nvarchar" MaxLength="250" />
+          <Property Name="DATE_CADEAU" Type="date" />
+          <Property Name="REF_CHEQUE" Type="nvarchar" MaxLength="150" />
+          <Property Name="BANQUE" Type="nvarchar" MaxLength="90" />
+          <Property Name="AGENCE" Type="nvarchar" MaxLength="100" />
+          <Property Name="DATE_CHEQUE" Type="date" />
+          <Property Name="MONTANT_CHEQUE" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="REF_RISTOURNE" Type="nvarchar" MaxLength="150" />
+          <Property Name="DATE_RISTOURNE" Type="date" />
+          <Property Name="MONTANT_RISTOURNE" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="TYPE_PROMOTION" Type="nvarchar" MaxLength="50" />
+          <Property Name="NOM_ENDOSSE" Type="nvarchar" MaxLength="250" />
+          <Property Name="OBSERVATION" Type="nvarchar" MaxLength="250" />
+          <Property Name="MONTANT_CADEAU" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="NB_CADEAU" Type="int" />
+          <Property Name="MARGE_REST" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="TX_REST" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="ETAT" Type="int" />
+          <Property Name="NDOSSIER" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID_USER" Type="nvarchar" MaxLength="150" />
+          <Property Name="DATE_SAISIE" Type="datetime" />
+          <Property Name="DATE_MAJ" Type="datetime" />
+          <Property Name="TX_DEP_ATTEINT" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="DATE_DOSSIER" Type="datetime" />
+        </EntityType>
+        <EntityType Name="LISTE_SPONSOR">
+          <Key>
+            <PropertyRef Name="CODE_SP" />
+          </Key>
+          <Property Name="CODE_SP" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="NOM_SP" Type="nvarchar" MaxLength="150" />
+          <Property Name="CODE_TYPE_SP" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="PROMOTION">
+          <Key>
+            <PropertyRef Name="ID_LIGNE" />
+          </Key>
+          <Property Name="ID_LIGNE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CODE_PROMOTION" Type="int" Nullable="false" />
+          <Property Name="NOM_PROMOTION" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="TYPE_PROMOTION" Type="nvarchar" MaxLength="75" Nullable="false" />
+          <Property Name="TYPE_CLIENT" Type="int" Nullable="false" />
+          <Property Name="LIBELLE_CADEAU" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="NOMBRE_SPONSOR" Type="int" Nullable="false" />
+          <Property Name="MONTANT_BUDGET_PROMOTION" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MONTANT_PALIER_ATTEINDRE" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="VALIDE_DU" Type="date" Nullable="false" />
+          <Property Name="VALIDE_AU" Type="date" Nullable="false" />
+          <Property Name="ID_USER" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="DATE_SAISIE" Type="datetime" />
+          <Property Name="DATE_MAJ" Type="datetime" />
+          <Property Name="ETAT" Type="int" />
+          <Property Name="TAUX_MARGE_GARDER" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MTN_MARGE_AD" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MOTIF" Type="text" />
+          <Property Name="TX_CIBLE" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="TX_DEPENSE" Type="numeric" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="SPONSORISER">
+          <Key>
+            <PropertyRef Name="ID_LIGNE" />
+            <PropertyRef Name="CODE_SP" />
+          </Key>
+          <Property Name="ID_LIGNE" Type="int" Nullable="false" />
+          <Property Name="CODE_SP" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="TAUX_PARTICIPATION" Type="numeric" Precision="18" Scale="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DEPENSE_CLIENT.dbo.AF_CLIENT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AF_CLIENT">
+          <Key>
+            <PropertyRef Name="entite" />
+            <PropertyRef Name="code_clien" />
+            
+          </Key>
+          <Property Name="entite" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="code_clien" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="NOM" Type="varchar" MaxLength="150" />
+          <Property Name="code_wil" Type="varchar" MaxLength="2" />
+          <Property Name="cod_activ" Type="varchar" MaxLength="10" />
+          <Property Name="activite" Type="varchar" MaxLength="50" />
+          <Property Name="cod_sect" Type="varchar" MaxLength="5" />
+          <Property Name="secteur" Type="varchar" MaxLength="150" />
+          <Property Name="cod_com" Type="varchar" MaxLength="30" />
+          <Property Name="commercial" Type="varchar" MaxLength="50" />
+          <Property Name="cod_superv" Type="varchar" MaxLength="30" />
+          <Property Name="superv" Type="varchar" MaxLength="50" />
+          <Property Name="obj_an" Type="decimal" Precision="28" Scale="2" />
+          <Property Name="veille" Type="varchar" MaxLength="2" />
+          <Property Name="raison_veil" Type="varchar" MaxLength="150" />
+          <Property Name="sup_veille" Type="varchar" MaxLength="2" />
+          <Property Name="rai_sveil" Type="varchar" MaxLength="150" />
+          <Property Name="cvn_client" Type="varchar" MaxLength="2" />
+          <Property Name="chq_gar" Type="varchar" MaxLength="2" />
+          <Property Name="date_convention" Type="date" />
+          <Property Name="PALIERCVN" Type="varchar" MaxLength="50" />
+          <Property Name="OBJECTIF_CVN" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Date_creation" Type="date" />
+          <Property Name="Heure_Creation" Type="nvarchar" MaxLength="20" />
+          <Property Name="cree_par" Type="varchar" MaxLength="150" />
+          <Property Name="date_extraction" Type="date" Nullable="false" />
+          <Property Name="Adesse" Type="varchar" MaxLength="300" />
+          <Property Name="ville" Type="varchar" MaxLength="100" />
+          <Property Name="CR_JR" Type="int" />
+          <Property Name="ID_FISC" Type="nvarchar" MaxLength="30" />
+          <Property Name="code_aux" Type="nvarchar" MaxLength="30" />
+          <Property Name="RC" Type="nvarchar" MaxLength="30" />
+          <Property Name="L_Wilaya" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DEPENSE_CLIENT.dbo.AF_DOSSIER_PROMO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AF_DOSSIER_PROMO">
+          <Key>
+            <PropertyRef Name="ID_GROUPE_FACT" />
+            <PropertyRef Name="code_client" />
+            <PropertyRef Name="NOM_PROMOTION" />
+            <PropertyRef Name="Remise_supp" />
+          </Key>
+          <Property Name="ID_GROUPE_FACT" Type="int" Nullable="false" />
+          <Property Name="code_client" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="code_aux" Type="nvarchar" MaxLength="30" />
+          <Property Name="NOM" Type="varchar" MaxLength="150" />
+          <Property Name="NDOSSIER" Type="nvarchar" MaxLength="50" />
+          <Property Name="NOM_PROMOTION" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Montant" Type="numeric" Precision="19" Scale="2" />
+          <Property Name="Taux" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Remise" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Remise_supp" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Total_Remise" Type="numeric" Precision="19" Scale="2" />
+          <Property Name="DATE_DOSSIER" Type="datetime" />
+          <Property Name="etat" Type="tinyint" />
+          <Property Name="observation" Type="text" />
+          <Property Name="dateheure" Type="datetime" />
+          <Property Name="numAvoir" Type="int" />
+          <Property Name="dateAvoir" Type="date" />
+          <Property Name="observation_avoir" Type="text" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DEPENSE_CLIENT.dbo.AF_FACTURES_CLIENTS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AF_FACTURES_CLIENTS">
+          <Key>
+            <PropertyRef Name="entite" />
+            <PropertyRef Name="type_trans" />
+            <PropertyRef Name="num_trans" />
+            <PropertyRef Name="code_clien" />
+            <PropertyRef Name="annee_trans" />
+          </Key>
+          <Property Name="entite" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="type_trans" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="num_trans" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="code_clien" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="num_ref" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="date_ref" Type="datetime" />
+          <Property Name="SECT" Type="varchar" MaxLength="10" />
+          <Property Name="opperant" Type="varchar" MaxLength="20" />
+          <Property Name="superv" Type="varchar" MaxLength="20" />
+          <Property Name="obj_FC" Type="decimal" Precision="28" Scale="2" />
+          <Property Name="statut_cvn" Type="varchar" MaxLength="2" />
+          <Property Name="cod_wil" Type="varchar" MaxLength="2" />
+          <Property Name="cod_comp" Type="varchar" MaxLength="10" />
+          <Property Name="date_trans" Type="datetime" />
+          <Property Name="total_HT" Type="decimal" Precision="28" Scale="2" />
+          <Property Name="total_TVA" Type="decimal" Precision="28" Scale="2" />
+          <Property Name="T_remise" Type="decimal" Precision="28" Scale="2" />
+          <Property Name="total_TTC" Type="decimal" Precision="28" Scale="2" />
+          <Property Name="facturier" Type="varchar" MaxLength="50" />
+          <Property Name="heure" Type="nvarchar" MaxLength="50" />
+          <Property Name="libelle_secteur" Type="varchar" MaxLength="150" />
+          <Property Name="code_commercial" Type="varchar" MaxLength="30" />
+          <Property Name="nom_commercial" Type="varchar" MaxLength="50" />
+          <Property Name="code_bl" Type="float" />
+          <Property Name="date_bl" Type="date" />
+          <Property Name="code_operant" Type="varchar" MaxLength="15" />
+          <Property Name="annee_trans" Type="int" Nullable="false" />
+          <Property Name="mois_trans" Type="int" />
+          <Property Name="CRJR" Type="int" />
+          <Property Name="CRJRE" Type="int" />
+          <Property Name="DATEECH" Type="date" />
+          <Property Name="Marge" Type="numeric" Precision="38" Scale="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DEPENSE_CLIENT.dbo.AF_FACTURES_CLIENTS_ALL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AF_FACTURES_CLIENTS_ALL">
+          <Key>
+            <PropertyRef Name="entite" />
+            <PropertyRef Name="type_trans" />
+            <PropertyRef Name="num_trans" />
+            <PropertyRef Name="code_clien" />
+            <PropertyRef Name="annee_trans" />
+          </Key>
+          <Property Name="entite" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="type_trans" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="num_trans" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="code_clien" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="num_ref" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="date_ref" Type="datetime" />
+          <Property Name="SECT" Type="varchar" MaxLength="10" />
+          <Property Name="opperant" Type="varchar" MaxLength="20" />
+          <Property Name="superv" Type="varchar" MaxLength="20" />
+          <Property Name="obj_FC" Type="decimal" Precision="28" Scale="2" />
+          <Property Name="statut_cvn" Type="varchar" MaxLength="2" />
+          <Property Name="cod_wil" Type="varchar" MaxLength="2" />
+          <Property Name="cod_comp" Type="varchar" MaxLength="10" />
+          <Property Name="date_trans" Type="datetime" />
+          <Property Name="total_HT" Type="decimal" Precision="28" Scale="2" />
+          <Property Name="total_TVA" Type="decimal" Precision="28" Scale="2" />
+          <Property Name="T_remise" Type="decimal" Precision="28" Scale="2" />
+          <Property Name="total_TTC" Type="decimal" Precision="28" Scale="2" />
+          <Property Name="facturier" Type="varchar" MaxLength="50" />
+          <Property Name="heure" Type="nvarchar" MaxLength="50" />
+          <Property Name="libelle_secteur" Type="varchar" MaxLength="150" />
+          <Property Name="code_commercial" Type="varchar" MaxLength="30" />
+          <Property Name="nom_commercial" Type="varchar" MaxLength="50" />
+          <Property Name="code_bl" Type="float" />
+          <Property Name="date_bl" Type="date" />
+          <Property Name="code_operant" Type="varchar" MaxLength="15" />
+          <Property Name="annee_trans" Type="int" Nullable="false" />
+          <Property Name="mois_trans" Type="int" />
+          <Property Name="CRJR" Type="int" />
+          <Property Name="CRJRE" Type="int" />
+          <Property Name="DATEECH" Type="date" />
+          <Property Name="Marge" Type="numeric" Precision="38" Scale="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DEPENSE_CLIENT.dbo.AF_FACTURES_CLIENTS_ALL_YEARS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AF_FACTURES_CLIENTS_ALL_YEARS">
+          <Key>
+            <PropertyRef Name="entite" />
+            <PropertyRef Name="type_trans" />
+            <PropertyRef Name="num_trans" />
+            <PropertyRef Name="code_clien" />
+            <PropertyRef Name="annee_trans" />
+          </Key>
+          <Property Name="entite" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="type_trans" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="num_trans" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="code_clien" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="num_ref" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="date_ref" Type="datetime" />
+          <Property Name="SECT" Type="varchar" MaxLength="10" />
+          <Property Name="opperant" Type="varchar" MaxLength="20" />
+          <Property Name="superv" Type="varchar" MaxLength="20" />
+          <Property Name="obj_FC" Type="decimal" Precision="28" Scale="2" />
+          <Property Name="statut_cvn" Type="varchar" MaxLength="2" />
+          <Property Name="cod_wil" Type="varchar" MaxLength="2" />
+          <Property Name="cod_comp" Type="varchar" MaxLength="10" />
+          <Property Name="date_trans" Type="datetime" />
+          <Property Name="total_HT" Type="decimal" Precision="28" Scale="2" />
+          <Property Name="total_TVA" Type="decimal" Precision="28" Scale="2" />
+          <Property Name="T_remise" Type="decimal" Precision="28" Scale="2" />
+          <Property Name="total_TTC" Type="decimal" Precision="28" Scale="2" />
+          <Property Name="facturier" Type="varchar" MaxLength="50" />
+          <Property Name="heure" Type="nvarchar" MaxLength="50" />
+          <Property Name="libelle_secteur" Type="varchar" MaxLength="150" />
+          <Property Name="code_commercial" Type="varchar" MaxLength="30" />
+          <Property Name="nom_commercial" Type="varchar" MaxLength="50" />
+          <Property Name="code_bl" Type="float" />
+          <Property Name="date_bl" Type="date" />
+          <Property Name="code_operant" Type="varchar" MaxLength="15" />
+          <Property Name="annee_trans" Type="int" Nullable="false" />
+          <Property Name="mois_trans" Type="int" />
+          <Property Name="CRJR" Type="int" />
+          <Property Name="CRJRE" Type="int" />
+          <Property Name="DATEECH" Type="date" />
+          <Property Name="Marge" Type="numeric" Precision="38" Scale="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DEPENSE_CLIENT.dbo.AF_MARGE_FACTURES' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AF_MARGE_FACTURES">
+          <Key>
+            <PropertyRef Name="NUM_TRANS" />
+          </Key>
+          <Property Name="NUM_TRANS" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DATE_TRANS" Type="datetime" />
+          <Property Name="Marge" Type="numeric" Precision="38" Scale="2" />
+        </EntityType>
+        <Association Name="FK_AF_EF_FACTURE_AF_EF_GROUPE_FACTURE">
+          <End Role="AF_EF_GROUPE_FACTURE" Type="Self.AF_EF_GROUPE_FACTURE" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AF_EF_FACTURE" Type="Self.AF_EF_FACTURE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AF_EF_GROUPE_FACTURE">
+              <PropertyRef Name="ID_GROUPE_FACT" />
+            </Principal>
+            <Dependent Role="AF_EF_FACTURE">
+              <PropertyRef Name="ID_GROUPE_FACT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AF_EF_LIGNE_FACTURE_AF_EF_FACTURE">
+          <End Role="AF_EF_FACTURE" Type="Self.AF_EF_FACTURE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AF_EF_LIGNE_FACTURE" Type="Self.AF_EF_LIGNE_FACTURE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AF_EF_FACTURE">
+              <PropertyRef Name="ENTITE" />
+              <PropertyRef Name="NUM_FACT" />
+              <PropertyRef Name="DATE_FACT" />
+            </Principal>
+            <Dependent Role="AF_EF_LIGNE_FACTURE">
+              <PropertyRef Name="ENTITE" />
+              <PropertyRef Name="NUM_FACT" />
+              <PropertyRef Name="DATE_FACT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AF_ETAT_AVOIR_AVOIR_FINANCIER">
+          <End Role="AVOIR_FINANCIER" Type="Self.AVOIR_FINANCIER" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AF_ETAT_AVOIR" Type="Self.AF_ETAT_AVOIR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AVOIR_FINANCIER">
+              <PropertyRef Name="numAvoir" />
+            </Principal>
+            <Dependent Role="AF_ETAT_AVOIR">
+              <PropertyRef Name="numAvoir" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AF_FACTURE_AF_GROUPE_FACTURE">
+          <End Role="AF_GROUPE_FACTURE" Type="Self.AF_GROUPE_FACTURE" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AF_FACTURE" Type="Self.AF_FACTURE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AF_GROUPE_FACTURE">
+              <PropertyRef Name="ID_GROUPE_FACT" />
+            </Principal>
+            <Dependent Role="AF_FACTURE">
+              <PropertyRef Name="ID_GROUPE_FACT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AF_LIGNE_FACTURE_AF_FACTURE">
+          <End Role="AF_FACTURE" Type="Self.AF_FACTURE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AF_LIGNE_FACTURE" Type="Self.AF_LIGNE_FACTURE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AF_FACTURE">
+              <PropertyRef Name="ENTITE" />
+              <PropertyRef Name="NUM_FACT" />
+              <PropertyRef Name="DATE_FACT" />
+            </Principal>
+            <Dependent Role="AF_LIGNE_FACTURE">
+              <PropertyRef Name="ENTITE" />
+              <PropertyRef Name="NUM_FACT" />
+              <PropertyRef Name="DATE_FACT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CHEQUE_AVOIR_FINANCIER">
+          <End Role="AVOIR_FINANCIER" Type="Self.AVOIR_FINANCIER" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CHEQUE" Type="Self.CHEQUE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AVOIR_FINANCIER">
+              <PropertyRef Name="numAvoir" />
+            </Principal>
+            <Dependent Role="CHEQUE">
+              <PropertyRef Name="numAvoir" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CHEQUE_BANQUE">
+          <End Role="BANQUE" Type="Self.BANQUE" Multiplicity="1" />
+          <End Role="CHEQUE" Type="Self.CHEQUE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BANQUE">
+              <PropertyRef Name="CODE_BANQUE" />
+            </Principal>
+            <Dependent Role="CHEQUE">
+              <PropertyRef Name="codeBank" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GROUPE_FACTURE_PROMOTION">
+          <End Role="PROMOTION" Type="Self.PROMOTION" Multiplicity="0..1" />
+          <End Role="GROUPE_FACTURE" Type="Self.GROUPE_FACTURE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROMOTION">
+              <PropertyRef Name="ID_LIGNE" />
+            </Principal>
+            <Dependent Role="GROUPE_FACTURE">
+              <PropertyRef Name="ID_LIGNE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="AF_GET_LIGNES_FACTURE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="entite" Type="nvarchar" Mode="In" />
+          <Parameter Name="numt" Type="int" Mode="In" />
+          <Parameter Name="d" Type="date" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Qte_Trans" Type="numeric" Precision="18" Scale="0" />
+                <Property Name="CODE_PROD" Type="varchar" MaxLength="10" Nullable="false" />
+                <Property Name="num_lot" Type="varchar" MaxLength="25" />
+                <Property Name="Ix_Ligne" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+                <Property Name="VAL_HT" Type="decimal" Precision="28" Scale="2" />
+                <Property Name="Val_Rz" Type="decimal" Precision="28" Scale="2" />
+                <Property Name="VAL_TVA" Type="decimal" Precision="28" Scale="2" />
+                <Property Name="Marge" Type="numeric" Precision="38" Scale="2" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <EntityContainer Name="ExpFinanceModelStoreContainer">
+          <EntitySet Name="AF_AVOIR_GROUPE" EntityType="Self.AF_AVOIR_GROUPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AF_EF_FACTURE" EntityType="Self.AF_EF_FACTURE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AF_EF_GROUPE_FACTURE" EntityType="Self.AF_EF_GROUPE_FACTURE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AF_EF_LIGNE_FACTURE" EntityType="Self.AF_EF_LIGNE_FACTURE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AF_ETAT_AVOIR" EntityType="Self.AF_ETAT_AVOIR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AF_FACTURE" EntityType="Self.AF_FACTURE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AF_GROUPE_FACTURE" EntityType="Self.AF_GROUPE_FACTURE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AF_LIGNE_FACTURE" EntityType="Self.AF_LIGNE_FACTURE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AF_OPS_LOG" EntityType="Self.AF_OPS_LOG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AF_PALIER_EF" EntityType="Self.AF_PALIER_EF" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AF_TEMP_AVOIR_FINANCIER" EntityType="Self.AF_TEMP_AVOIR_FINANCIER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AF_TEMP_AVOIR_GROUPE" EntityType="Self.AF_TEMP_AVOIR_GROUPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AF_TEMP_DATA" EntityType="Self.AF_TEMP_DATA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AF_TEMP_DATA_ANT" EntityType="Self.AF_TEMP_DATA_ANT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AF_TEMP_ETAT_AVOIR" EntityType="Self.AF_TEMP_ETAT_AVOIR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AF_TEMP_FACTURE" EntityType="Self.AF_TEMP_FACTURE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AF_TEMP_GROUPE_FACTURE" EntityType="Self.AF_TEMP_GROUPE_FACTURE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AF_UTILISATEUR" EntityType="Self.AF_UTILISATEUR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AVOIR_FINANCIER" EntityType="Self.AVOIR_FINANCIER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BANQUE" EntityType="Self.BANQUE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CHEQUE" EntityType="Self.CHEQUE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FACTURE" EntityType="Self.FACTURE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GROUPE_FACTURE" EntityType="Self.GROUPE_FACTURE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LISTE_SPONSOR" EntityType="Self.LISTE_SPONSOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PROMOTION" EntityType="Self.PROMOTION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SPONSORISER" EntityType="Self.SPONSORISER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AF_CLIENT" EntityType="Self.AF_CLIENT" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[AF_CLIENT].[entite] AS [entite], 
+[AF_CLIENT].[code_clien] AS [code_clien], 
+[AF_CLIENT].[NOM] AS [NOM], 
+[AF_CLIENT].[code_wil] AS [code_wil], 
+[AF_CLIENT].[cod_activ] AS [cod_activ], 
+[AF_CLIENT].[activite] AS [activite], 
+[AF_CLIENT].[cod_sect] AS [cod_sect], 
+[AF_CLIENT].[secteur] AS [secteur], 
+[AF_CLIENT].[cod_com] AS [cod_com], 
+[AF_CLIENT].[commercial] AS [commercial], 
+[AF_CLIENT].[cod_superv] AS [cod_superv], 
+[AF_CLIENT].[superv] AS [superv], 
+[AF_CLIENT].[obj_an] AS [obj_an], 
+[AF_CLIENT].[veille] AS [veille], 
+[AF_CLIENT].[raison_veil] AS [raison_veil], 
+[AF_CLIENT].[sup_veille] AS [sup_veille], 
+[AF_CLIENT].[rai_sveil] AS [rai_sveil], 
+[AF_CLIENT].[cvn_client] AS [cvn_client], 
+[AF_CLIENT].[chq_gar] AS [chq_gar], 
+[AF_CLIENT].[date_convention] AS [date_convention], 
+[AF_CLIENT].[PALIERCVN] AS [PALIERCVN], 
+[AF_CLIENT].[OBJECTIF_CVN] AS [OBJECTIF_CVN], 
+[AF_CLIENT].[Date_creation] AS [Date_creation], 
+[AF_CLIENT].[Heure_Creation] AS [Heure_Creation], 
+[AF_CLIENT].[cree_par] AS [cree_par], 
+[AF_CLIENT].[date_extraction] AS [date_extraction], 
+[AF_CLIENT].[Adesse] AS [Adesse], 
+[AF_CLIENT].[ville] AS [ville], 
+[AF_CLIENT].[CR_JR] AS [CR_JR], 
+[AF_CLIENT].[ID_FISC] AS [ID_FISC], 
+[AF_CLIENT].[code_aux] AS [code_aux], 
+[AF_CLIENT].[RC] AS [RC], 
+[AF_CLIENT].[L_Wilaya] AS [L_Wilaya]
+FROM [dbo].[AF_CLIENT] AS [AF_CLIENT]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AF_DOSSIER_PROMO" EntityType="Self.AF_DOSSIER_PROMO" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[AF_DOSSIER_PROMO].[ID_GROUPE_FACT] AS [ID_GROUPE_FACT], 
+[AF_DOSSIER_PROMO].[code_client] AS [code_client], 
+[AF_DOSSIER_PROMO].[code_aux] AS [code_aux], 
+[AF_DOSSIER_PROMO].[NOM] AS [NOM], 
+[AF_DOSSIER_PROMO].[NDOSSIER] AS [NDOSSIER], 
+[AF_DOSSIER_PROMO].[NOM_PROMOTION] AS [NOM_PROMOTION], 
+[AF_DOSSIER_PROMO].[Montant] AS [Montant], 
+[AF_DOSSIER_PROMO].[Taux] AS [Taux], 
+[AF_DOSSIER_PROMO].[Remise] AS [Remise], 
+[AF_DOSSIER_PROMO].[Remise_supp] AS [Remise_supp], 
+[AF_DOSSIER_PROMO].[Total_Remise] AS [Total_Remise], 
+[AF_DOSSIER_PROMO].[DATE_DOSSIER] AS [DATE_DOSSIER], 
+[AF_DOSSIER_PROMO].[etat] AS [etat], 
+[AF_DOSSIER_PROMO].[observation] AS [observation], 
+[AF_DOSSIER_PROMO].[dateheure] AS [dateheure], 
+[AF_DOSSIER_PROMO].[numAvoir] AS [numAvoir], 
+[AF_DOSSIER_PROMO].[dateAvoir] AS [dateAvoir], 
+[AF_DOSSIER_PROMO].[observation_avoir] AS [observation_avoir]
+FROM [dbo].[AF_DOSSIER_PROMO] AS [AF_DOSSIER_PROMO]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AF_FACTURES_CLIENTS" EntityType="Self.AF_FACTURES_CLIENTS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[AF_FACTURES_CLIENTS].[entite] AS [entite], 
+[AF_FACTURES_CLIENTS].[type_trans] AS [type_trans], 
+[AF_FACTURES_CLIENTS].[num_trans] AS [num_trans], 
+[AF_FACTURES_CLIENTS].[code_clien] AS [code_clien], 
+[AF_FACTURES_CLIENTS].[num_ref] AS [num_ref], 
+[AF_FACTURES_CLIENTS].[date_ref] AS [date_ref], 
+[AF_FACTURES_CLIENTS].[SECT] AS [SECT], 
+[AF_FACTURES_CLIENTS].[opperant] AS [opperant], 
+[AF_FACTURES_CLIENTS].[superv] AS [superv], 
+[AF_FACTURES_CLIENTS].[obj_FC] AS [obj_FC], 
+[AF_FACTURES_CLIENTS].[statut_cvn] AS [statut_cvn], 
+[AF_FACTURES_CLIENTS].[cod_wil] AS [cod_wil], 
+[AF_FACTURES_CLIENTS].[cod_comp] AS [cod_comp], 
+[AF_FACTURES_CLIENTS].[date_trans] AS [date_trans], 
+[AF_FACTURES_CLIENTS].[total_HT] AS [total_HT], 
+[AF_FACTURES_CLIENTS].[total_TVA] AS [total_TVA], 
+[AF_FACTURES_CLIENTS].[T_remise] AS [T_remise], 
+[AF_FACTURES_CLIENTS].[total_TTC] AS [total_TTC], 
+[AF_FACTURES_CLIENTS].[facturier] AS [facturier], 
+[AF_FACTURES_CLIENTS].[heure] AS [heure], 
+[AF_FACTURES_CLIENTS].[libelle_secteur] AS [libelle_secteur], 
+[AF_FACTURES_CLIENTS].[code_commercial] AS [code_commercial], 
+[AF_FACTURES_CLIENTS].[nom_commercial] AS [nom_commercial], 
+[AF_FACTURES_CLIENTS].[code_bl] AS [code_bl], 
+[AF_FACTURES_CLIENTS].[date_bl] AS [date_bl], 
+[AF_FACTURES_CLIENTS].[code_operant] AS [code_operant], 
+[AF_FACTURES_CLIENTS].[annee_trans] AS [annee_trans], 
+[AF_FACTURES_CLIENTS].[mois_trans] AS [mois_trans], 
+[AF_FACTURES_CLIENTS].[CRJR] AS [CRJR], 
+[AF_FACTURES_CLIENTS].[CRJRE] AS [CRJRE], 
+[AF_FACTURES_CLIENTS].[DATEECH] AS [DATEECH], 
+[AF_FACTURES_CLIENTS].[Marge] AS [Marge]
+FROM [dbo].[AF_FACTURES_CLIENTS] AS [AF_FACTURES_CLIENTS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AF_FACTURES_CLIENTS_ALL" EntityType="Self.AF_FACTURES_CLIENTS_ALL" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[AF_FACTURES_CLIENTS_ALL].[entite] AS [entite], 
+[AF_FACTURES_CLIENTS_ALL].[type_trans] AS [type_trans], 
+[AF_FACTURES_CLIENTS_ALL].[num_trans] AS [num_trans], 
+[AF_FACTURES_CLIENTS_ALL].[code_clien] AS [code_clien], 
+[AF_FACTURES_CLIENTS_ALL].[num_ref] AS [num_ref], 
+[AF_FACTURES_CLIENTS_ALL].[date_ref] AS [date_ref], 
+[AF_FACTURES_CLIENTS_ALL].[SECT] AS [SECT], 
+[AF_FACTURES_CLIENTS_ALL].[opperant] AS [opperant], 
+[AF_FACTURES_CLIENTS_ALL].[superv] AS [superv], 
+[AF_FACTURES_CLIENTS_ALL].[obj_FC] AS [obj_FC], 
+[AF_FACTURES_CLIENTS_ALL].[statut_cvn] AS [statut_cvn], 
+[AF_FACTURES_CLIENTS_ALL].[cod_wil] AS [cod_wil], 
+[AF_FACTURES_CLIENTS_ALL].[cod_comp] AS [cod_comp], 
+[AF_FACTURES_CLIENTS_ALL].[date_trans] AS [date_trans], 
+[AF_FACTURES_CLIENTS_ALL].[total_HT] AS [total_HT], 
+[AF_FACTURES_CLIENTS_ALL].[total_TVA] AS [total_TVA], 
+[AF_FACTURES_CLIENTS_ALL].[T_remise] AS [T_remise], 
+[AF_FACTURES_CLIENTS_ALL].[total_TTC] AS [total_TTC], 
+[AF_FACTURES_CLIENTS_ALL].[facturier] AS [facturier], 
+[AF_FACTURES_CLIENTS_ALL].[heure] AS [heure], 
+[AF_FACTURES_CLIENTS_ALL].[libelle_secteur] AS [libelle_secteur], 
+[AF_FACTURES_CLIENTS_ALL].[code_commercial] AS [code_commercial], 
+[AF_FACTURES_CLIENTS_ALL].[nom_commercial] AS [nom_commercial], 
+[AF_FACTURES_CLIENTS_ALL].[code_bl] AS [code_bl], 
+[AF_FACTURES_CLIENTS_ALL].[date_bl] AS [date_bl], 
+[AF_FACTURES_CLIENTS_ALL].[code_operant] AS [code_operant], 
+[AF_FACTURES_CLIENTS_ALL].[annee_trans] AS [annee_trans], 
+[AF_FACTURES_CLIENTS_ALL].[mois_trans] AS [mois_trans], 
+[AF_FACTURES_CLIENTS_ALL].[CRJR] AS [CRJR], 
+[AF_FACTURES_CLIENTS_ALL].[CRJRE] AS [CRJRE], 
+[AF_FACTURES_CLIENTS_ALL].[DATEECH] AS [DATEECH], 
+[AF_FACTURES_CLIENTS_ALL].[Marge] AS [Marge]
+FROM [dbo].[AF_FACTURES_CLIENTS_ALL] AS [AF_FACTURES_CLIENTS_ALL]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AF_FACTURES_CLIENTS_ALL_YEARS" EntityType="Self.AF_FACTURES_CLIENTS_ALL_YEARS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[AF_FACTURES_CLIENTS_ALL_YEARS].[entite] AS [entite], 
+[AF_FACTURES_CLIENTS_ALL_YEARS].[type_trans] AS [type_trans], 
+[AF_FACTURES_CLIENTS_ALL_YEARS].[num_trans] AS [num_trans], 
+[AF_FACTURES_CLIENTS_ALL_YEARS].[code_clien] AS [code_clien], 
+[AF_FACTURES_CLIENTS_ALL_YEARS].[num_ref] AS [num_ref], 
+[AF_FACTURES_CLIENTS_ALL_YEARS].[date_ref] AS [date_ref], 
+[AF_FACTURES_CLIENTS_ALL_YEARS].[SECT] AS [SECT], 
+[AF_FACTURES_CLIENTS_ALL_YEARS].[opperant] AS [opperant], 
+[AF_FACTURES_CLIENTS_ALL_YEARS].[superv] AS [superv], 
+[AF_FACTURES_CLIENTS_ALL_YEARS].[obj_FC] AS [obj_FC], 
+[AF_FACTURES_CLIENTS_ALL_YEARS].[statut_cvn] AS [statut_cvn], 
+[AF_FACTURES_CLIENTS_ALL_YEARS].[cod_wil] AS [cod_wil], 
+[AF_FACTURES_CLIENTS_ALL_YEARS].[cod_comp] AS [cod_comp], 
+[AF_FACTURES_CLIENTS_ALL_YEARS].[date_trans] AS [date_trans], 
+[AF_FACTURES_CLIENTS_ALL_YEARS].[total_HT] AS [total_HT], 
+[AF_FACTURES_CLIENTS_ALL_YEARS].[total_TVA] AS [total_TVA], 
+[AF_FACTURES_CLIENTS_ALL_YEARS].[T_remise] AS [T_remise], 
+[AF_FACTURES_CLIENTS_ALL_YEARS].[total_TTC] AS [total_TTC], 
+[AF_FACTURES_CLIENTS_ALL_YEARS].[facturier] AS [facturier], 
+[AF_FACTURES_CLIENTS_ALL_YEARS].[heure] AS [heure], 
+[AF_FACTURES_CLIENTS_ALL_YEARS].[libelle_secteur] AS [libelle_secteur], 
+[AF_FACTURES_CLIENTS_ALL_YEARS].[code_commercial] AS [code_commercial], 
+[AF_FACTURES_CLIENTS_ALL_YEARS].[nom_commercial] AS [nom_commercial], 
+[AF_FACTURES_CLIENTS_ALL_YEARS].[code_bl] AS [code_bl], 
+[AF_FACTURES_CLIENTS_ALL_YEARS].[date_bl] AS [date_bl], 
+[AF_FACTURES_CLIENTS_ALL_YEARS].[code_operant] AS [code_operant], 
+[AF_FACTURES_CLIENTS_ALL_YEARS].[annee_trans] AS [annee_trans], 
+[AF_FACTURES_CLIENTS_ALL_YEARS].[mois_trans] AS [mois_trans], 
+[AF_FACTURES_CLIENTS_ALL_YEARS].[CRJR] AS [CRJR], 
+[AF_FACTURES_CLIENTS_ALL_YEARS].[CRJRE] AS [CRJRE], 
+[AF_FACTURES_CLIENTS_ALL_YEARS].[DATEECH] AS [DATEECH], 
+[AF_FACTURES_CLIENTS_ALL_YEARS].[Marge] AS [Marge]
+FROM [dbo].[AF_FACTURES_CLIENTS_ALL_YEARS] AS [AF_FACTURES_CLIENTS_ALL_YEARS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AF_MARGE_FACTURES" EntityType="Self.AF_MARGE_FACTURES" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[AF_MARGE_FACTURES].[NUM_TRANS] AS [NUM_TRANS], 
+[AF_MARGE_FACTURES].[DATE_TRANS] AS [DATE_TRANS], 
+[AF_MARGE_FACTURES].[Marge] AS [Marge]
+FROM [dbo].[AF_MARGE_FACTURES] AS [AF_MARGE_FACTURES]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_AF_EF_FACTURE_AF_EF_GROUPE_FACTURE" Association="Self.FK_AF_EF_FACTURE_AF_EF_GROUPE_FACTURE">
+            <End Role="AF_EF_GROUPE_FACTURE" EntitySet="AF_EF_GROUPE_FACTURE" />
+            <End Role="AF_EF_FACTURE" EntitySet="AF_EF_FACTURE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AF_EF_LIGNE_FACTURE_AF_EF_FACTURE" Association="Self.FK_AF_EF_LIGNE_FACTURE_AF_EF_FACTURE">
+            <End Role="AF_EF_FACTURE" EntitySet="AF_EF_FACTURE" />
+            <End Role="AF_EF_LIGNE_FACTURE" EntitySet="AF_EF_LIGNE_FACTURE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AF_ETAT_AVOIR_AVOIR_FINANCIER" Association="Self.FK_AF_ETAT_AVOIR_AVOIR_FINANCIER">
+            <End Role="AVOIR_FINANCIER" EntitySet="AVOIR_FINANCIER" />
+            <End Role="AF_ETAT_AVOIR" EntitySet="AF_ETAT_AVOIR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AF_FACTURE_AF_GROUPE_FACTURE" Association="Self.FK_AF_FACTURE_AF_GROUPE_FACTURE">
+            <End Role="AF_GROUPE_FACTURE" EntitySet="AF_GROUPE_FACTURE" />
+            <End Role="AF_FACTURE" EntitySet="AF_FACTURE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AF_LIGNE_FACTURE_AF_FACTURE" Association="Self.FK_AF_LIGNE_FACTURE_AF_FACTURE">
+            <End Role="AF_FACTURE" EntitySet="AF_FACTURE" />
+            <End Role="AF_LIGNE_FACTURE" EntitySet="AF_LIGNE_FACTURE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CHEQUE_AVOIR_FINANCIER" Association="Self.FK_CHEQUE_AVOIR_FINANCIER">
+            <End Role="AVOIR_FINANCIER" EntitySet="AVOIR_FINANCIER" />
+            <End Role="CHEQUE" EntitySet="CHEQUE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CHEQUE_BANQUE" Association="Self.FK_CHEQUE_BANQUE">
+            <End Role="BANQUE" EntitySet="BANQUE" />
+            <End Role="CHEQUE" EntitySet="CHEQUE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GROUPE_FACTURE_PROMOTION" Association="Self.FK_GROUPE_FACTURE_PROMOTION">
+            <End Role="PROMOTION" EntitySet="PROMOTION" />
+            <End Role="GROUPE_FACTURE" EntitySet="GROUPE_FACTURE" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ExpFinanceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ExpFinanceEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="GET_FACTURES">
+          <Parameter Name="entite" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GET_GROUPE_FACTURE">
+          <Parameter Name="entite" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="AVOIR_FINANCIER" EntityType="ExpFinanceModel.AVOIR_FINANCIER" />
+          <EntitySet Name="BANQUE" EntityType="ExpFinanceModel.BANQUE" />
+          <EntitySet Name="CHEQUE" EntityType="ExpFinanceModel.CHEQUE" />
+          <EntitySet Name="FACTURE" EntityType="ExpFinanceModel.FACTURE" />
+          <EntitySet Name="GROUPE_FACTURE" EntityType="ExpFinanceModel.GROUPE_FACTURE" />
+          <EntitySet Name="PROMOTION" EntityType="ExpFinanceModel.PROMOTION" />
+          <EntitySet Name="AF_DOSSIER_PROMO" EntityType="ExpFinanceModel.AF_DOSSIER_PROMO" />
+          <EntitySet Name="AF_FACTURES_CLIENTS" EntityType="ExpFinanceModel.AF_FACTURES_CLIENTS" />
+          <EntitySet Name="AF_MARGE_FACTURES" EntityType="ExpFinanceModel.AF_MARGE_FACTURES" />
+          <AssociationSet Name="FK_CHEQUE_AVOIR_FINANCIER" Association="ExpFinanceModel.FK_CHEQUE_AVOIR_FINANCIER">
+            <End Role="AVOIR_FINANCIER" EntitySet="AVOIR_FINANCIER" />
+            <End Role="CHEQUE" EntitySet="CHEQUE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CHEQUE_BANQUE" Association="ExpFinanceModel.FK_CHEQUE_BANQUE">
+            <End Role="BANQUE" EntitySet="BANQUE" />
+            <End Role="CHEQUE" EntitySet="CHEQUE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GROUPE_FACTURE_PROMOTION" Association="ExpFinanceModel.FK_GROUPE_FACTURE_PROMOTION">
+            <End Role="PROMOTION" EntitySet="PROMOTION" />
+            <End Role="GROUPE_FACTURE" EntitySet="GROUPE_FACTURE" />
+          </AssociationSet>
+          <EntitySet Name="AF_CLIENT" EntityType="ExpFinanceModel.AF_CLIENT" />
+          <EntitySet Name="AF_FACTURE" EntityType="ExpFinanceModel.AF_FACTURE" />
+          <EntitySet Name="AF_GROUPE_FACTURE" EntityType="ExpFinanceModel.AF_GROUPE_FACTURE" />
+          <AssociationSet Name="FK_AF_FACTURE_AF_GROUPE_FACTURE" Association="ExpFinanceModel.FK_AF_FACTURE_AF_GROUPE_FACTURE">
+            <End Role="AF_GROUPE_FACTURE" EntitySet="AF_GROUPE_FACTURE" />
+            <End Role="AF_FACTURE" EntitySet="AF_FACTURE" />
+          </AssociationSet>
+          <EntitySet Name="LISTE_SPONSOR" EntityType="ExpFinanceModel.LISTE_SPONSOR" />
+          <EntitySet Name="SPONSORISER" EntityType="ExpFinanceModel.SPONSORISER" />
+          <EntitySet Name="AF_ETAT_AVOIR" EntityType="ExpFinanceModel.AF_ETAT_AVOIR" />
+          <AssociationSet Name="FK_AF_ETAT_AVOIR_AVOIR_FINANCIER" Association="ExpFinanceModel.FK_AF_ETAT_AVOIR_AVOIR_FINANCIER">
+            <End Role="AVOIR_FINANCIER" EntitySet="AVOIR_FINANCIER" />
+            <End Role="AF_ETAT_AVOIR" EntitySet="AF_ETAT_AVOIR" />
+          </AssociationSet>
+          <EntitySet Name="AF_AVOIR_GROUPE" EntityType="ExpFinanceModel.AF_AVOIR_GROUPE" />
+          <FunctionImport Name="AF_GET_LIGNES_FACTURE" IsComposable="true" ReturnType="Collection(ExpFinanceModel.AF_GET_LIGNES_FACTURE_Result)">
+            <Parameter Name="entite" Mode="In" Type="String" />
+            <Parameter Name="numt" Mode="In" Type="Int32" />
+            <Parameter Name="d" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <EntitySet Name="AF_UTILISATEUR" EntityType="ExpFinanceModel.AF_UTILISATEUR" />
+          <EntitySet Name="AF_LIGNE_FACTURE" EntityType="ExpFinanceModel.AF_LIGNE_FACTURE" />
+          <AssociationSet Name="FK_AF_LIGNE_FACTURE_AF_FACTURE" Association="ExpFinanceModel.FK_AF_LIGNE_FACTURE_AF_FACTURE">
+            <End Role="AF_FACTURE" EntitySet="AF_FACTURE" />
+            <End Role="AF_LIGNE_FACTURE" EntitySet="AF_LIGNE_FACTURE" />
+          </AssociationSet>
+          <EntitySet Name="AF_PALIER_EF" EntityType="ExpFinanceModel.AF_PALIER_EF" />
+          <EntitySet Name="AF_FACTURES_CLIENTS_ALL" EntityType="ExpFinanceModel.AF_FACTURES_CLIENTS_ALL" />
+          <EntitySet Name="AF_EF_FACTURE" EntityType="ExpFinanceModel.AF_EF_FACTURE" />
+          <EntitySet Name="AF_EF_GROUPE_FACTURE" EntityType="ExpFinanceModel.AF_EF_GROUPE_FACTURE" />
+          <AssociationSet Name="FK_AF_EF_FACTURE_AF_EF_GROUPE_FACTURE" Association="ExpFinanceModel.FK_AF_EF_FACTURE_AF_EF_GROUPE_FACTURE">
+            <End Role="AF_EF_GROUPE_FACTURE" EntitySet="AF_EF_GROUPE_FACTURE" />
+            <End Role="AF_EF_FACTURE" EntitySet="AF_EF_FACTURE" />
+          </AssociationSet>
+          <EntitySet Name="AF_EF_LIGNE_FACTURE" EntityType="ExpFinanceModel.AF_EF_LIGNE_FACTURE" />
+          <AssociationSet Name="FK_AF_EF_LIGNE_FACTURE_AF_EF_FACTURE" Association="ExpFinanceModel.FK_AF_EF_LIGNE_FACTURE_AF_EF_FACTURE">
+            <End Role="AF_EF_FACTURE" EntitySet="AF_EF_FACTURE" />
+            <End Role="AF_EF_LIGNE_FACTURE" EntitySet="AF_EF_LIGNE_FACTURE" />
+          </AssociationSet>
+          <EntitySet Name="AF_TEMP_AVOIR_FINANCIER" EntityType="ExpFinanceModel.AF_TEMP_AVOIR_FINANCIER" />
+          <EntitySet Name="AF_TEMP_AVOIR_GROUPE" EntityType="ExpFinanceModel.AF_TEMP_AVOIR_GROUPE" />
+          <EntitySet Name="AF_TEMP_DATA" EntityType="ExpFinanceModel.AF_TEMP_DATA" />
+          <EntitySet Name="AF_TEMP_ETAT_AVOIR" EntityType="ExpFinanceModel.AF_TEMP_ETAT_AVOIR" />
+          <EntitySet Name="AF_TEMP_FACTURE" EntityType="ExpFinanceModel.AF_TEMP_FACTURE" />
+          <EntitySet Name="AF_TEMP_GROUPE_FACTURE" EntityType="ExpFinanceModel.AF_TEMP_GROUPE_FACTURE" />
+          <EntitySet Name="AF_TEMP_DATA_ANT" EntityType="ExpFinanceModel.AF_TEMP_DATA_ANT" />
+          <EntitySet Name="AF_FACTURES_CLIENTS_ALL_YEARS" EntityType="ExpFinanceModel.AF_FACTURES_CLIENTS_ALL_YEARS" />
+          <EntitySet Name="AF_OPS_LOG" EntityType="ExpFinanceModel.AF_OPS_LOG" />
+        </EntityContainer>
+        <EntityType Name="AVOIR_FINANCIER">
+          <Key>
+            <PropertyRef Name="numAvoir" />
+          </Key>
+          <Property Name="numAvoir" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="dateAvoir" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="montant" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="numAvoirComptable" Type="Int32" />
+          <Property Name="designation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CHEQUE" Relationship="ExpFinanceModel.FK_CHEQUE_AVOIR_FINANCIER" FromRole="AVOIR_FINANCIER" ToRole="CHEQUE" />
+          <Property Name="montantCheque" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="montantCreance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Observation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="true" />
+          <Property Type="Byte" Name="typeAvoir" Nullable="false" />
+          <NavigationProperty Name="AF_ETAT_AVOIR" Relationship="ExpFinanceModel.FK_AF_ETAT_AVOIR_AVOIR_FINANCIER" FromRole="AVOIR_FINANCIER" ToRole="AF_ETAT_AVOIR" />
+        </EntityType>
+        <EntityType Name="BANQUE">
+          <Key>
+            <PropertyRef Name="CODE_BANQUE" />
+          </Key>
+          <Property Name="ENTITE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CODE_BANQUE" Type="Int32" Nullable="false" />
+          <Property Name="NOM_BANQUE" Type="String" MaxLength="125" FixedLength="false" Unicode="true" />
+          <Property Name="BANQUE_DEPOT" Type="Int32" />
+          <Property Name="ADRESSE" Type="String" MaxLength="235" FixedLength="false" Unicode="true" />
+          <Property Name="NUM_TELEPHONE" Type="String" MaxLength="105" FixedLength="false" Unicode="true" />
+          <Property Name="ID_USER" Type="String" Nullable="false" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Name="DATE_SAISIE" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="CHEQUE" Relationship="ExpFinanceModel.FK_CHEQUE_BANQUE" FromRole="BANQUE" ToRole="CHEQUE" />
+        </EntityType>
+        <EntityType Name="CHEQUE">
+          <Key>
+            <PropertyRef Name="ref" />
+          </Key>
+          <Property Name="numCheque" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="codeBank" Type="Int32" Nullable="false" />
+          <Property Name="montant" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="numAvoir" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AVOIR_FINANCIER" Relationship="ExpFinanceModel.FK_CHEQUE_AVOIR_FINANCIER" FromRole="CHEQUE" ToRole="AVOIR_FINANCIER" />
+          <NavigationProperty Name="BANQUE" Relationship="ExpFinanceModel.FK_CHEQUE_BANQUE" FromRole="CHEQUE" ToRole="BANQUE" />
+          <Property Type="Int32" Name="ref" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="description" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="FACTURE">
+          <Key>
+            <PropertyRef Name="ENTITE" />
+            <PropertyRef Name="NUM_FACT" />
+            <PropertyRef Name="DATE_FACT" />
+          </Key>
+          <Property Name="ENTITE" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="NUM_FACT" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="DATE_FACT" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MNT_HT_RZ" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MNT_RZ" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MNT_TTC" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MNT_TVA" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CODE_CLIENT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MARGE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ID_GROUPE_FACT" Type="Int32" />
+        </EntityType>
+        <EntityType Name="GROUPE_FACTURE">
+          <Key>
+            <PropertyRef Name="ID_GROUPE_FACT" />
+          </Key>
+          <Property Name="ID_GROUPE_FACT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ENTITE" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CODE_CLIENT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MNT_HT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MNT_TTC" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MNT_RZ" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MNT_TVA" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MARGE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="REF_AVOIR_COMPT" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ID_LIGNE" Type="Int32" />
+          <Property Name="LIBELLE_CADEAU" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DATE_CADEAU" Type="DateTime" Precision="0" />
+          <Property Name="REF_CHEQUE" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="BANQUE" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="AGENCE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DATE_CHEQUE" Type="DateTime" Precision="0" />
+          <Property Name="MONTANT_CHEQUE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="REF_RISTOURNE" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="DATE_RISTOURNE" Type="DateTime" Precision="0" />
+          <Property Name="MONTANT_RISTOURNE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TYPE_PROMOTION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NOM_ENDOSSE" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="OBSERVATION" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="MONTANT_CADEAU" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="NB_CADEAU" Type="Int32" />
+          <Property Name="MARGE_REST" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TX_REST" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ETAT" Type="Int32" />
+          <Property Name="NDOSSIER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID_USER" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="DATE_SAISIE" Type="DateTime" Precision="3" />
+          <Property Name="DATE_MAJ" Type="DateTime" Precision="3" />
+          <Property Name="TX_DEP_ATTEINT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DATE_DOSSIER" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="PROMOTION" Relationship="ExpFinanceModel.FK_GROUPE_FACTURE_PROMOTION" FromRole="GROUPE_FACTURE" ToRole="PROMOTION" />
+        </EntityType>
+        <EntityType Name="PROMOTION">
+          <Key>
+            <PropertyRef Name="ID_LIGNE" />
+          </Key>
+          <Property Name="ID_LIGNE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CODE_PROMOTION" Type="Int32" Nullable="false" />
+          <Property Name="NOM_PROMOTION" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TYPE_PROMOTION" Type="String" Nullable="false" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="TYPE_CLIENT" Type="Int32" Nullable="false" />
+          <Property Name="LIBELLE_CADEAU" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NOMBRE_SPONSOR" Type="Int32" Nullable="false" />
+          <Property Name="MONTANT_BUDGET_PROMOTION" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MONTANT_PALIER_ATTEINDRE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="VALIDE_DU" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="VALIDE_AU" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ID_USER" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="DATE_SAISIE" Type="DateTime" Precision="3" />
+          <Property Name="DATE_MAJ" Type="DateTime" Precision="3" />
+          <Property Name="ETAT" Type="Int32" />
+          <Property Name="TAUX_MARGE_GARDER" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MTN_MARGE_AD" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MOTIF" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TX_CIBLE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TX_DEPENSE" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="GROUPE_FACTURE" Relationship="ExpFinanceModel.FK_GROUPE_FACTURE_PROMOTION" FromRole="PROMOTION" ToRole="GROUPE_FACTURE" />
+        </EntityType>
+        <EntityType Name="AF_DOSSIER_PROMO">
+          <Key>
+            <PropertyRef Name="ID_GROUPE_FACT" />
+            <PropertyRef Name="NOM_PROMOTION" />
+            <PropertyRef Name="Remise_supp" />
+            <PropertyRef Name="code_client" />
+          </Key>
+          <Property Name="ID_GROUPE_FACT" Type="Int32" Nullable="false" />
+          <Property Name="NOM" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="NOM_PROMOTION" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Montant" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="Taux" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Remise" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Remise_supp" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Total_Remise" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="DATE_DOSSIER" Type="DateTime" Precision="3" />
+          <Property Type="Byte" Name="etat" />
+          <Property Type="String" Name="observation" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dateheure" Precision="3" />
+          <Property Name="code_client" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="NDOSSIER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="numAvoir" Type="Int32" />
+          <Property Name="observation_avoir" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="code_aux" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="dateAvoir" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="AF_FACTURES_CLIENTS">
+          <Key>
+            <PropertyRef Name="entite" />
+            <PropertyRef Name="type_trans" />
+            <PropertyRef Name="num_trans" />
+            <PropertyRef Name="code_clien" />
+            <PropertyRef Name="annee_trans" />
+          </Key>
+          <Property Name="entite" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="type_trans" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="num_trans" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="code_clien" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="num_ref" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="date_ref" Type="DateTime" Precision="3" />
+          <Property Name="SECT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="opperant" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="superv" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="obj_FC" Type="Decimal" Precision="28" Scale="2" />
+          <Property Name="statut_cvn" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="cod_wil" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="cod_comp" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="date_trans" Type="DateTime" Precision="3" />
+          <Property Name="total_HT" Type="Decimal" Precision="28" Scale="2" />
+          <Property Name="total_TVA" Type="Decimal" Precision="28" Scale="2" />
+          <Property Name="T_remise" Type="Decimal" Precision="28" Scale="2" />
+          <Property Name="total_TTC" Type="Decimal" Precision="28" Scale="2" />
+          <Property Name="facturier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="heure" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="libelle_secteur" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="code_commercial" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="nom_commercial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="code_bl" Type="Double" />
+          <Property Name="date_bl" Type="DateTime" Precision="0" />
+          <Property Name="code_operant" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="annee_trans" Type="Int32" Nullable="false" />
+          <Property Name="mois_trans" Type="Int32" />
+          <Property Name="CRJR" Type="Int32" />
+          <Property Name="CRJRE" Type="Int32" />
+          <Property Name="DATEECH" Type="DateTime" Precision="0" />
+          <Property Name="Marge" Type="Decimal" Precision="38" Scale="2" />
+        </EntityType>
+        <EntityType Name="AF_MARGE_FACTURES">
+          <Key>
+            <PropertyRef Name="NUM_TRANS" />
+          </Key>
+          <Property Name="NUM_TRANS" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="DATE_TRANS" Type="DateTime" Precision="3" />
+          <Property Name="Marge" Type="Decimal" Precision="38" Scale="2" />
+        </EntityType>
+        <Association Name="FK_CHEQUE_AVOIR_FINANCIER">
+          <End Type="ExpFinanceModel.AVOIR_FINANCIER" Role="AVOIR_FINANCIER" Multiplicity="1" />
+          <End Type="ExpFinanceModel.CHEQUE" Role="CHEQUE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AVOIR_FINANCIER">
+              <PropertyRef Name="numAvoir" />
+            </Principal>
+            <Dependent Role="CHEQUE">
+              <PropertyRef Name="numAvoir" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CHEQUE_BANQUE">
+          <End Type="ExpFinanceModel.BANQUE" Role="BANQUE" Multiplicity="1" />
+          <End Type="ExpFinanceModel.CHEQUE" Role="CHEQUE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BANQUE">
+              <PropertyRef Name="CODE_BANQUE" />
+            </Principal>
+            <Dependent Role="CHEQUE">
+              <PropertyRef Name="codeBank" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GROUPE_FACTURE_PROMOTION">
+          <End Type="ExpFinanceModel.PROMOTION" Role="PROMOTION" Multiplicity="0..1" />
+          <End Type="ExpFinanceModel.GROUPE_FACTURE" Role="GROUPE_FACTURE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROMOTION">
+              <PropertyRef Name="ID_LIGNE" />
+            </Principal>
+            <Dependent Role="GROUPE_FACTURE">
+              <PropertyRef Name="ID_LIGNE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AF_CLIENT">
+          <Key>
+            <PropertyRef Name="entite" />
+            <PropertyRef Name="code_clien" />
+          </Key>
+          <Property Name="entite" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="code_clien" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="NOM" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="code_wil" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="cod_activ" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="activite" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cod_sect" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="secteur" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="cod_com" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="commercial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cod_superv" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="superv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="obj_an" Type="Decimal" Precision="28" Scale="2" />
+          <Property Name="veille" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="raison_veil" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="sup_veille" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="rai_sveil" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="cvn_client" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="chq_gar" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="date_convention" Type="DateTime" Precision="0" />
+          <Property Name="PALIERCVN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OBJECTIF_CVN" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Date_creation" Type="DateTime" Precision="0" />
+          <Property Name="Heure_Creation" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="cree_par" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="date_extraction" Type="DateTime" Precision="0" Nullable="false" />
+          <Property Name="Adesse" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="ville" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CR_JR" Type="Int32" />
+          <Property Name="ID_FISC" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="code_aux" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="RC" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="L_Wilaya" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AF_FACTURE">
+          <Key>
+            <PropertyRef Name="ENTITE" />
+            <PropertyRef Name="NUM_FACT" />
+            <PropertyRef Name="DATE_FACT" />
+          </Key>
+          <Property Name="ENTITE" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="NUM_FACT" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="DATE_FACT" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MNT_HT_RZ" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MNT_RZ" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MNT_TTC" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MNT_TVA" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CODE_CLIENT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MARGE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ID_GROUPE_FACT" Type="Int32" />
+          <NavigationProperty Name="AF_GROUPE_FACTURE" Relationship="ExpFinanceModel.FK_AF_FACTURE_AF_GROUPE_FACTURE" FromRole="AF_FACTURE" ToRole="AF_GROUPE_FACTURE" />
+          <NavigationProperty Name="AF_LIGNE_FACTURE" Relationship="ExpFinanceModel.FK_AF_LIGNE_FACTURE_AF_FACTURE" FromRole="AF_FACTURE" ToRole="AF_LIGNE_FACTURE" />
+        </EntityType>
+        <EntityType Name="AF_GROUPE_FACTURE">
+          <Key>
+            <PropertyRef Name="ID_GROUPE_FACT" />
+          </Key>
+          <Property Name="ID_GROUPE_FACT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ENTITE" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CODE_CLIENT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MNT_HT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MNT_TTC" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MNT_RZ" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MNT_TVA" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MARGE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="REF_AVOIR_COMPT" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ID_LIGNE" Type="Int32" />
+          <Property Name="LIBELLE_CADEAU" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DATE_CADEAU" Type="DateTime" Precision="0" />
+          <Property Name="REF_CHEQUE" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="BANQUE" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="AGENCE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DATE_CHEQUE" Type="DateTime" Precision="0" />
+          <Property Name="MONTANT_CHEQUE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="REF_RISTOURNE" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="DATE_RISTOURNE" Type="DateTime" Precision="0" />
+          <Property Name="MONTANT_RISTOURNE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TYPE_PROMOTION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NOM_ENDOSSE" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="OBSERVATION" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="MONTANT_CADEAU" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="NB_CADEAU" Type="Int32" />
+          <Property Name="MARGE_REST" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TX_REST" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ETAT" Type="Int32" />
+          <Property Name="NDOSSIER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID_USER" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="DATE_SAISIE" Type="DateTime" Precision="3" />
+          <Property Name="DATE_MAJ" Type="DateTime" Precision="3" />
+          <Property Name="TX_DEP_ATTEINT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DATE_DOSSIER" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AF_FACTURE" Relationship="ExpFinanceModel.FK_AF_FACTURE_AF_GROUPE_FACTURE" FromRole="AF_GROUPE_FACTURE" ToRole="AF_FACTURE" />
+        </EntityType>
+        <Association Name="FK_AF_FACTURE_AF_GROUPE_FACTURE">
+          <End Type="ExpFinanceModel.AF_GROUPE_FACTURE" Role="AF_GROUPE_FACTURE" Multiplicity="0..1" />
+          <End Type="ExpFinanceModel.AF_FACTURE" Role="AF_FACTURE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AF_GROUPE_FACTURE">
+              <PropertyRef Name="ID_GROUPE_FACT" />
+            </Principal>
+            <Dependent Role="AF_FACTURE">
+              <PropertyRef Name="ID_GROUPE_FACT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="LISTE_SPONSOR">
+          <Key>
+            <PropertyRef Name="CODE_SP" />
+          </Key>
+          <Property Name="CODE_SP" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="NOM_SP" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CODE_TYPE_SP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SPONSORISER">
+          <Key>
+            <PropertyRef Name="ID_LIGNE" />
+            <PropertyRef Name="CODE_SP" />
+          </Key>
+          <Property Name="ID_LIGNE" Type="Int32" Nullable="false" />
+          <Property Name="CODE_SP" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="TAUX_PARTICIPATION" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="AF_ETAT_AVOIR">
+          <Key>
+            <PropertyRef Name="pkey" />
+          </Key>
+          <Property Type="Int32" Name="pkey" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IDG" />
+          <Property Type="String" Name="numDossier" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="numAvoir" />
+          <Property Type="Byte" Name="Etat" Nullable="false" />
+          <Property Type="String" Name="observation" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dateHeure" Nullable="false" Precision="3" />
+          <NavigationProperty Name="AVOIR_FINANCIER" Relationship="ExpFinanceModel.FK_AF_ETAT_AVOIR_AVOIR_FINANCIER" FromRole="AF_ETAT_AVOIR" ToRole="AVOIR_FINANCIER" />
+        </EntityType>
+        <Association Name="FK_AF_ETAT_AVOIR_AVOIR_FINANCIER">
+          <End Type="ExpFinanceModel.AVOIR_FINANCIER" Role="AVOIR_FINANCIER" Multiplicity="0..1" />
+          <End Type="ExpFinanceModel.AF_ETAT_AVOIR" Role="AF_ETAT_AVOIR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AVOIR_FINANCIER">
+              <PropertyRef Name="numAvoir" />
+            </Principal>
+            <Dependent Role="AF_ETAT_AVOIR">
+              <PropertyRef Name="numAvoir" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AF_AVOIR_GROUPE">
+          <Key>
+            <PropertyRef Name="numAvoir" />
+            <PropertyRef Name="IDG" />
+          </Key>
+          <Property Type="Int32" Name="numAvoir" Nullable="false" />
+          <Property Type="Int32" Name="IDG" Nullable="false" />
+          <Property Type="Byte" Name="Libre" Nullable="false" />
+        </EntityType>
+        <ComplexType Name="AF_GET_LIGNES_FACTURE_Result">
+          <Property Type="Decimal" Name="Ix_Ligne" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="CODE_PROD" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="num_lot" Nullable="true" MaxLength="25" />
+          <Property Type="Decimal" Name="Qte_Trans" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="VAL_HT" Nullable="true" Precision="28" Scale="2" />
+          <Property Type="Decimal" Name="Val_Rz" Nullable="true" Precision="28" Scale="2" />
+          <Property Type="Decimal" Name="VAL_TVA" Nullable="true" Precision="28" Scale="2" />
+          <Property Type="Decimal" Name="Marge" Nullable="true" Precision="38" Scale="2" />
+        </ComplexType>
+        <EntityType Name="AF_UTILISATEUR">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Type="String" Name="Username" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Nom" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Role" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AF_LIGNE_FACTURE">
+          <Key>
+            <PropertyRef Name="ENTITE" />
+            <PropertyRef Name="NUM_FACT" />
+            <PropertyRef Name="DATE_FACT" />
+            <PropertyRef Name="NUM_LIGNE" />
+          </Key>
+          <Property Name="ENTITE" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="NUM_FACT" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="DATE_FACT" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NUM_LIGNE" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AF_FACTURE" Relationship="ExpFinanceModel.FK_AF_LIGNE_FACTURE_AF_FACTURE" FromRole="AF_LIGNE_FACTURE" ToRole="AF_FACTURE" />
+        </EntityType>
+        <Association Name="FK_AF_LIGNE_FACTURE_AF_FACTURE">
+          <End Type="ExpFinanceModel.AF_FACTURE" Role="AF_FACTURE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ExpFinanceModel.AF_LIGNE_FACTURE" Role="AF_LIGNE_FACTURE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AF_FACTURE">
+              <PropertyRef Name="ENTITE" />
+              <PropertyRef Name="NUM_FACT" />
+              <PropertyRef Name="DATE_FACT" />
+            </Principal>
+            <Dependent Role="AF_LIGNE_FACTURE">
+              <PropertyRef Name="ENTITE" />
+              <PropertyRef Name="NUM_FACT" />
+              <PropertyRef Name="DATE_FACT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AF_PALIER_EF">
+          <Key>
+            <PropertyRef Name="idPalier" />
+          </Key>
+          <Property Name="idPalier" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DebutPalier" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="FinPalier" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Percentage" Type="Decimal" Nullable="false" Precision="3" Scale="2" />
+          <Property Name="actif" Type="Byte" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AF_FACTURES_CLIENTS_ALL">
+          <Key>
+            <PropertyRef Name="entite" />
+            <PropertyRef Name="type_trans" />
+            <PropertyRef Name="num_trans" />
+            <PropertyRef Name="code_clien" />
+            <PropertyRef Name="annee_trans" />
+          </Key>
+          <Property Name="entite" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="type_trans" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="num_trans" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="code_clien" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="num_ref" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="date_ref" Type="DateTime" Precision="3" />
+          <Property Name="SECT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="opperant" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="superv" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="obj_FC" Type="Decimal" Precision="28" Scale="2" />
+          <Property Name="statut_cvn" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="cod_wil" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="cod_comp" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="date_trans" Type="DateTime" Precision="3" />
+          <Property Name="total_HT" Type="Decimal" Precision="28" Scale="2" />
+          <Property Name="total_TVA" Type="Decimal" Precision="28" Scale="2" />
+          <Property Name="T_remise" Type="Decimal" Precision="28" Scale="2" />
+          <Property Name="total_TTC" Type="Decimal" Precision="28" Scale="2" />
+          <Property Name="facturier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="heure" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="libelle_secteur" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="code_commercial" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="nom_commercial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="code_bl" Type="Double" />
+          <Property Name="date_bl" Type="DateTime" Precision="0" />
+          <Property Name="code_operant" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="annee_trans" Type="Int32" Nullable="false" />
+          <Property Name="mois_trans" Type="Int32" />
+          <Property Name="CRJR" Type="Int32" />
+          <Property Name="CRJRE" Type="Int32" />
+          <Property Name="DATEECH" Type="DateTime" Precision="0" />
+          <Property Name="Marge" Type="Decimal" Precision="38" Scale="2" />
+        </EntityType>
+        <EntityType Name="AF_EF_FACTURE">
+          <Key>
+            <PropertyRef Name="ENTITE" />
+            <PropertyRef Name="NUM_FACT" />
+            <PropertyRef Name="DATE_FACT" />
+          </Key>
+          <Property Name="ENTITE" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="NUM_FACT" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="DATE_FACT" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MNT_HT_RZ" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MNT_RZ" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MNT_TTC" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MNT_TVA" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CODE_CLIENT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MARGE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ID_GROUPE_FACT" Type="Int32" />
+          <NavigationProperty Name="AF_EF_GROUPE_FACTURE" Relationship="ExpFinanceModel.FK_AF_EF_FACTURE_AF_EF_GROUPE_FACTURE" FromRole="AF_EF_FACTURE" ToRole="AF_EF_GROUPE_FACTURE" />
+          <NavigationProperty Name="AF_EF_LIGNE_FACTURE" Relationship="ExpFinanceModel.FK_AF_EF_LIGNE_FACTURE_AF_EF_FACTURE" FromRole="AF_EF_FACTURE" ToRole="AF_EF_LIGNE_FACTURE" />
+        </EntityType>
+        <EntityType Name="AF_EF_GROUPE_FACTURE">
+          <Key>
+            <PropertyRef Name="ID_GROUPE_FACT" />
+          </Key>
+          <Property Name="ID_GROUPE_FACT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ENTITE" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CODE_CLIENT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MNT_HT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MNT_TTC" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MNT_RZ" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MNT_TVA" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MARGE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="REF_AVOIR_COMPT" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ID_LIGNE" Type="Int32" />
+          <Property Name="LIBELLE_CADEAU" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DATE_CADEAU" Type="DateTime" Precision="0" />
+          <Property Name="REF_CHEQUE" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="BANQUE" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="AGENCE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DATE_CHEQUE" Type="DateTime" Precision="0" />
+          <Property Name="MONTANT_CHEQUE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="REF_RISTOURNE" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="DATE_RISTOURNE" Type="DateTime" Precision="0" />
+          <Property Name="MONTANT_RISTOURNE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TYPE_PROMOTION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NOM_ENDOSSE" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="OBSERVATION" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="MONTANT_CADEAU" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="NB_CADEAU" Type="Int32" />
+          <Property Name="MARGE_REST" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TX_REST" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ETAT" Type="Int32" />
+          <Property Name="NDOSSIER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID_USER" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="DATE_SAISIE" Type="DateTime" Precision="3" />
+          <Property Name="DATE_MAJ" Type="DateTime" Precision="3" />
+          <Property Name="TX_DEP_ATTEINT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DATE_DOSSIER" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AF_EF_FACTURE" Relationship="ExpFinanceModel.FK_AF_EF_FACTURE_AF_EF_GROUPE_FACTURE" FromRole="AF_EF_GROUPE_FACTURE" ToRole="AF_EF_FACTURE" />
+        </EntityType>
+        <Association Name="FK_AF_EF_FACTURE_AF_EF_GROUPE_FACTURE">
+          <End Type="ExpFinanceModel.AF_EF_GROUPE_FACTURE" Role="AF_EF_GROUPE_FACTURE" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ExpFinanceModel.AF_EF_FACTURE" Role="AF_EF_FACTURE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AF_EF_GROUPE_FACTURE">
+              <PropertyRef Name="ID_GROUPE_FACT" />
+            </Principal>
+            <Dependent Role="AF_EF_FACTURE">
+              <PropertyRef Name="ID_GROUPE_FACT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AF_EF_LIGNE_FACTURE">
+          <Key>
+            <PropertyRef Name="ENTITE" />
+            <PropertyRef Name="NUM_FACT" />
+            <PropertyRef Name="DATE_FACT" />
+            <PropertyRef Name="NUM_LIGNE" />
+          </Key>
+          <Property Name="ENTITE" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="NUM_FACT" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="DATE_FACT" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NUM_LIGNE" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AF_EF_FACTURE" Relationship="ExpFinanceModel.FK_AF_EF_LIGNE_FACTURE_AF_EF_FACTURE" FromRole="AF_EF_LIGNE_FACTURE" ToRole="AF_EF_FACTURE" />
+        </EntityType>
+        <Association Name="FK_AF_EF_LIGNE_FACTURE_AF_EF_FACTURE">
+          <End Type="ExpFinanceModel.AF_EF_FACTURE" Role="AF_EF_FACTURE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ExpFinanceModel.AF_EF_LIGNE_FACTURE" Role="AF_EF_LIGNE_FACTURE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AF_EF_FACTURE">
+              <PropertyRef Name="ENTITE" />
+              <PropertyRef Name="NUM_FACT" />
+              <PropertyRef Name="DATE_FACT" />
+            </Principal>
+            <Dependent Role="AF_EF_LIGNE_FACTURE">
+              <PropertyRef Name="ENTITE" />
+              <PropertyRef Name="NUM_FACT" />
+              <PropertyRef Name="DATE_FACT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AF_TEMP_AVOIR_FINANCIER">
+          <Key>
+            <PropertyRef Name="numAvoir" />
+          </Key>
+          <Property Name="numAvoir" Type="Int32" Nullable="false" />
+          <Property Name="dateAvoir" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="montant" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="numAvoirComptable" Type="Int32" />
+          <Property Name="designation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="montantCheque" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="montantCreance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Observation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="typeAvoir" Type="Byte" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AF_TEMP_AVOIR_GROUPE">
+          <Key>
+            <PropertyRef Name="numAvoir" />
+            <PropertyRef Name="IDG" />
+            <PropertyRef Name="Libre" />
+          </Key>
+          <Property Name="numAvoir" Type="Int32" Nullable="false" />
+          <Property Name="IDG" Type="Int32" Nullable="false" />
+          <Property Name="Libre" Type="Byte" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AF_TEMP_DATA">
+          <Key>
+            <PropertyRef Name="numAvoir" />
+            <PropertyRef Name="entite" />
+          </Key>
+          <Property Name="refAvoir" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="numAvoir" Type="Int32" Nullable="false" />
+          <Property Name="dateAvoir" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Montant" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="cheque" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="creance" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="typeAvoir" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="codeClient" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="factures" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="entite" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="idgroupe" Type="Int32" />
+        </EntityType>
+        <EntityType Name="AF_TEMP_ETAT_AVOIR">
+          <Key>
+            <PropertyRef Name="pkey" />
+          </Key>
+          <Property Name="pkey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDG" Type="Int32" />
+          <Property Name="numDossier" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="numAvoir" Type="Int32" />
+          <Property Name="Etat" Type="Byte" Nullable="false" />
+          <Property Name="observation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="dateHeure" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="AF_TEMP_FACTURE">
+          <Key>
+            <PropertyRef Name="ENTITE" />
+            <PropertyRef Name="NUM_FACT" />
+            <PropertyRef Name="DATE_FACT" />
+          </Key>
+          <Property Name="ENTITE" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="NUM_FACT" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="DATE_FACT" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MNT_HT_RZ" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MNT_RZ" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MNT_TTC" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MNT_TVA" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CODE_CLIENT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MARGE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ID_GROUPE_FACT" Type="Int32" />
+        </EntityType>
+        <EntityType Name="AF_TEMP_GROUPE_FACTURE">
+          <Key>
+            <PropertyRef Name="ID_GROUPE_FACT" />
+          </Key>
+          <Property Name="ID_GROUPE_FACT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="ENTITE" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CODE_CLIENT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MNT_HT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MNT_TTC" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MNT_RZ" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MNT_TVA" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MARGE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="REF_AVOIR_COMPT" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ID_LIGNE" Type="Int32" />
+          <Property Name="LIBELLE_CADEAU" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DATE_CADEAU" Type="DateTime" Precision="0" />
+          <Property Name="REF_CHEQUE" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="BANQUE" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="AGENCE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DATE_CHEQUE" Type="DateTime" Precision="0" />
+          <Property Name="MONTANT_CHEQUE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="REF_RISTOURNE" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="DATE_RISTOURNE" Type="DateTime" Precision="0" />
+          <Property Name="MONTANT_RISTOURNE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TYPE_PROMOTION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NOM_ENDOSSE" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="OBSERVATION" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="MONTANT_CADEAU" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="NB_CADEAU" Type="Int32" />
+          <Property Name="MARGE_REST" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TX_REST" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ETAT" Type="Int32" />
+          <Property Name="NDOSSIER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID_USER" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="DATE_SAISIE" Type="DateTime" Precision="3" />
+          <Property Name="DATE_MAJ" Type="DateTime" Precision="3" />
+          <Property Name="TX_DEP_ATTEINT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DATE_DOSSIER" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="AF_TEMP_DATA_ANT">
+          <Key>
+            <PropertyRef Name="numAvoir" />
+            <PropertyRef Name="entite" />
+          </Key>
+          <Property Name="refAvoir" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="numAvoir" Type="Int32" Nullable="false" />
+          <Property Name="dateAvoir" Type="DateTime" Precision="0" />
+          <Property Name="Montant" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="cheque" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="creance" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="typeAvoir" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CA" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Exercice" Type="DateTime" Precision="0" />
+          <Property Name="codeClient" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="factures" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="entite" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="idgroupe" Type="Int32" />
+        </EntityType>
+        <EntityType Name="AF_FACTURES_CLIENTS_ALL_YEARS">
+          <Key>
+            <PropertyRef Name="entite" />
+            <PropertyRef Name="type_trans" />
+            <PropertyRef Name="num_trans" />
+            <PropertyRef Name="code_clien" />
+            <PropertyRef Name="annee_trans" />
+          </Key>
+          <Property Name="entite" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="type_trans" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="num_trans" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="code_clien" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="num_ref" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="date_ref" Type="DateTime" Precision="3" />
+          <Property Name="SECT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="opperant" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="superv" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="obj_FC" Type="Decimal" Precision="28" Scale="2" />
+          <Property Name="statut_cvn" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="cod_wil" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="cod_comp" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="date_trans" Type="DateTime" Precision="3" />
+          <Property Name="total_HT" Type="Decimal" Precision="28" Scale="2" />
+          <Property Name="total_TVA" Type="Decimal" Precision="28" Scale="2" />
+          <Property Name="T_remise" Type="Decimal" Precision="28" Scale="2" />
+          <Property Name="total_TTC" Type="Decimal" Precision="28" Scale="2" />
+          <Property Name="facturier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="heure" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="libelle_secteur" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="code_commercial" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="nom_commercial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="code_bl" Type="Double" />
+          <Property Name="date_bl" Type="DateTime" Precision="0" />
+          <Property Name="code_operant" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="annee_trans" Type="Int32" Nullable="false" />
+          <Property Name="mois_trans" Type="Int32" />
+          <Property Name="CRJR" Type="Int32" />
+          <Property Name="CRJRE" Type="Int32" />
+          <Property Name="DATEECH" Type="DateTime" Precision="0" />
+          <Property Name="Marge" Type="Decimal" Precision="38" Scale="2" />
+        </EntityType>
+        <EntityType Name="AF_OPS_LOG">
+          <Key>
+            <PropertyRef Name="pkey" />
+          </Key>
+          <Property Name="pkey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Operation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="numavoir" Type="Int32" />
+          <Property Name="numdossier" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="instant" Type="DateTime" Precision="3" />
+          <Property Name="idg" Type="Int32" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ExpFinanceModelStoreContainer" CdmEntityContainer="ExpFinanceEntities">
+          <EntitySetMapping Name="AVOIR_FINANCIER">
+            <EntityTypeMapping TypeName="ExpFinanceModel.AVOIR_FINANCIER">
+              <MappingFragment StoreEntitySet="AVOIR_FINANCIER">
+                <ScalarProperty Name="typeAvoir" ColumnName="typeAvoir" />
+                <ScalarProperty Name="Observation" ColumnName="Observation" />
+                <ScalarProperty Name="montantCreance" ColumnName="montantCreance" />
+                <ScalarProperty Name="montantCheque" ColumnName="montantCheque" />
+                <ScalarProperty Name="designation" ColumnName="designation" />
+                <ScalarProperty Name="numAvoirComptable" ColumnName="numAvoirComptable" />
+                <ScalarProperty Name="montant" ColumnName="montant" />
+                <ScalarProperty Name="dateAvoir" ColumnName="dateAvoir" />
+                <ScalarProperty Name="numAvoir" ColumnName="numAvoir" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BANQUE">
+            <EntityTypeMapping TypeName="ExpFinanceModel.BANQUE">
+              <MappingFragment StoreEntitySet="BANQUE">
+                <ScalarProperty Name="DATE_SAISIE" ColumnName="DATE_SAISIE" />
+                <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+                <ScalarProperty Name="NUM_TELEPHONE" ColumnName="NUM_TELEPHONE" />
+                <ScalarProperty Name="ADRESSE" ColumnName="ADRESSE" />
+                <ScalarProperty Name="BANQUE_DEPOT" ColumnName="BANQUE_DEPOT" />
+                <ScalarProperty Name="NOM_BANQUE" ColumnName="NOM_BANQUE" />
+                <ScalarProperty Name="CODE_BANQUE" ColumnName="CODE_BANQUE" />
+                <ScalarProperty Name="ENTITE" ColumnName="ENTITE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CHEQUE">
+            <EntityTypeMapping TypeName="ExpFinanceModel.CHEQUE">
+              <MappingFragment StoreEntitySet="CHEQUE">
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="ref" ColumnName="ref" />
+                <ScalarProperty Name="numAvoir" ColumnName="numAvoir" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="montant" ColumnName="montant" />
+                <ScalarProperty Name="codeBank" ColumnName="codeBank" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="numCheque" ColumnName="numCheque" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FACTURE">
+            <EntityTypeMapping TypeName="ExpFinanceModel.FACTURE">
+              <MappingFragment StoreEntitySet="FACTURE">
+                <ScalarProperty Name="ID_GROUPE_FACT" ColumnName="ID_GROUPE_FACT" />
+                <ScalarProperty Name="MARGE" ColumnName="MARGE" />
+                <ScalarProperty Name="CODE_CLIENT" ColumnName="CODE_CLIENT" />
+                <ScalarProperty Name="MNT_TVA" ColumnName="MNT_TVA" />
+                <ScalarProperty Name="MNT_TTC" ColumnName="MNT_TTC" />
+                <ScalarProperty Name="MNT_RZ" ColumnName="MNT_RZ" />
+                <ScalarProperty Name="MNT_HT_RZ" ColumnName="MNT_HT_RZ" />
+                <ScalarProperty Name="DATE_FACT" ColumnName="DATE_FACT" />
+                <ScalarProperty Name="NUM_FACT" ColumnName="NUM_FACT" />
+                <ScalarProperty Name="ENTITE" ColumnName="ENTITE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GROUPE_FACTURE">
+            <EntityTypeMapping TypeName="ExpFinanceModel.GROUPE_FACTURE">
+              <MappingFragment StoreEntitySet="GROUPE_FACTURE">
+                <ScalarProperty Name="DATE_DOSSIER" ColumnName="DATE_DOSSIER" />
+                <ScalarProperty Name="TX_DEP_ATTEINT" ColumnName="TX_DEP_ATTEINT" />
+                <ScalarProperty Name="DATE_MAJ" ColumnName="DATE_MAJ" />
+                <ScalarProperty Name="DATE_SAISIE" ColumnName="DATE_SAISIE" />
+                <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+                <ScalarProperty Name="NDOSSIER" ColumnName="NDOSSIER" />
+                <ScalarProperty Name="ETAT" ColumnName="ETAT" />
+                <ScalarProperty Name="TX_REST" ColumnName="TX_REST" />
+                <ScalarProperty Name="MARGE_REST" ColumnName="MARGE_REST" />
+                <ScalarProperty Name="NB_CADEAU" ColumnName="NB_CADEAU" />
+                <ScalarProperty Name="MONTANT_CADEAU" ColumnName="MONTANT_CADEAU" />
+                <ScalarProperty Name="OBSERVATION" ColumnName="OBSERVATION" />
+                <ScalarProperty Name="NOM_ENDOSSE" ColumnName="NOM_ENDOSSE" />
+                <ScalarProperty Name="TYPE_PROMOTION" ColumnName="TYPE_PROMOTION" />
+                <ScalarProperty Name="MONTANT_RISTOURNE" ColumnName="MONTANT_RISTOURNE" />
+                <ScalarProperty Name="DATE_RISTOURNE" ColumnName="DATE_RISTOURNE" />
+                <ScalarProperty Name="REF_RISTOURNE" ColumnName="REF_RISTOURNE" />
+                <ScalarProperty Name="MONTANT_CHEQUE" ColumnName="MONTANT_CHEQUE" />
+                <ScalarProperty Name="DATE_CHEQUE" ColumnName="DATE_CHEQUE" />
+                <ScalarProperty Name="AGENCE" ColumnName="AGENCE" />
+                <ScalarProperty Name="BANQUE" ColumnName="BANQUE" />
+                <ScalarProperty Name="REF_CHEQUE" ColumnName="REF_CHEQUE" />
+                <ScalarProperty Name="DATE_CADEAU" ColumnName="DATE_CADEAU" />
+                <ScalarProperty Name="LIBELLE_CADEAU" ColumnName="LIBELLE_CADEAU" />
+                <ScalarProperty Name="ID_LIGNE" ColumnName="ID_LIGNE" />
+                <ScalarProperty Name="REF_AVOIR_COMPT" ColumnName="REF_AVOIR_COMPT" />
+                <ScalarProperty Name="MARGE" ColumnName="MARGE" />
+                <ScalarProperty Name="MNT_TVA" ColumnName="MNT_TVA" />
+                <ScalarProperty Name="MNT_RZ" ColumnName="MNT_RZ" />
+                <ScalarProperty Name="MNT_TTC" ColumnName="MNT_TTC" />
+                <ScalarProperty Name="MNT_HT" ColumnName="MNT_HT" />
+                <ScalarProperty Name="CODE_CLIENT" ColumnName="CODE_CLIENT" />
+                <ScalarProperty Name="ENTITE" ColumnName="ENTITE" />
+                <ScalarProperty Name="ID_GROUPE_FACT" ColumnName="ID_GROUPE_FACT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROMOTION">
+            <EntityTypeMapping TypeName="ExpFinanceModel.PROMOTION">
+              <MappingFragment StoreEntitySet="PROMOTION">
+                <ScalarProperty Name="TX_DEPENSE" ColumnName="TX_DEPENSE" />
+                <ScalarProperty Name="TX_CIBLE" ColumnName="TX_CIBLE" />
+                <ScalarProperty Name="MOTIF" ColumnName="MOTIF" />
+                <ScalarProperty Name="MTN_MARGE_AD" ColumnName="MTN_MARGE_AD" />
+                <ScalarProperty Name="TAUX_MARGE_GARDER" ColumnName="TAUX_MARGE_GARDER" />
+                <ScalarProperty Name="ETAT" ColumnName="ETAT" />
+                <ScalarProperty Name="DATE_MAJ" ColumnName="DATE_MAJ" />
+                <ScalarProperty Name="DATE_SAISIE" ColumnName="DATE_SAISIE" />
+                <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+                <ScalarProperty Name="VALIDE_AU" ColumnName="VALIDE_AU" />
+                <ScalarProperty Name="VALIDE_DU" ColumnName="VALIDE_DU" />
+                <ScalarProperty Name="MONTANT_PALIER_ATTEINDRE" ColumnName="MONTANT_PALIER_ATTEINDRE" />
+                <ScalarProperty Name="MONTANT_BUDGET_PROMOTION" ColumnName="MONTANT_BUDGET_PROMOTION" />
+                <ScalarProperty Name="NOMBRE_SPONSOR" ColumnName="NOMBRE_SPONSOR" />
+                <ScalarProperty Name="LIBELLE_CADEAU" ColumnName="LIBELLE_CADEAU" />
+                <ScalarProperty Name="TYPE_CLIENT" ColumnName="TYPE_CLIENT" />
+                <ScalarProperty Name="TYPE_PROMOTION" ColumnName="TYPE_PROMOTION" />
+                <ScalarProperty Name="NOM_PROMOTION" ColumnName="NOM_PROMOTION" />
+                <ScalarProperty Name="CODE_PROMOTION" ColumnName="CODE_PROMOTION" />
+                <ScalarProperty Name="ID_LIGNE" ColumnName="ID_LIGNE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AF_DOSSIER_PROMO">
+            <EntityTypeMapping TypeName="ExpFinanceModel.AF_DOSSIER_PROMO">
+              <MappingFragment StoreEntitySet="AF_DOSSIER_PROMO">
+                <ScalarProperty Name="dateAvoir" ColumnName="dateAvoir" />
+                <ScalarProperty Name="code_aux" ColumnName="code_aux" />
+                <ScalarProperty Name="observation_avoir" ColumnName="observation_avoir" />
+                <ScalarProperty Name="numAvoir" ColumnName="numAvoir" />
+                <ScalarProperty Name="NDOSSIER" ColumnName="NDOSSIER" />
+                <ScalarProperty Name="code_client" ColumnName="code_client" />
+                <ScalarProperty Name="dateheure" ColumnName="dateheure" />
+                <ScalarProperty Name="observation" ColumnName="observation" />
+                <ScalarProperty Name="etat" ColumnName="etat" />
+                <ScalarProperty Name="DATE_DOSSIER" ColumnName="DATE_DOSSIER" />
+                <ScalarProperty Name="Total_Remise" ColumnName="Total_Remise" />
+                <ScalarProperty Name="Remise_supp" ColumnName="Remise_supp" />
+                <ScalarProperty Name="Remise" ColumnName="Remise" />
+                <ScalarProperty Name="Taux" ColumnName="Taux" />
+                <ScalarProperty Name="Montant" ColumnName="Montant" />
+                <ScalarProperty Name="NOM_PROMOTION" ColumnName="NOM_PROMOTION" />
+                <ScalarProperty Name="NOM" ColumnName="NOM" />
+                <ScalarProperty Name="ID_GROUPE_FACT" ColumnName="ID_GROUPE_FACT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AF_FACTURES_CLIENTS">
+            <EntityTypeMapping TypeName="ExpFinanceModel.AF_FACTURES_CLIENTS">
+              <MappingFragment StoreEntitySet="AF_FACTURES_CLIENTS">
+                <ScalarProperty Name="Marge" ColumnName="Marge" />
+                <ScalarProperty Name="DATEECH" ColumnName="DATEECH" />
+                <ScalarProperty Name="CRJRE" ColumnName="CRJRE" />
+                <ScalarProperty Name="CRJR" ColumnName="CRJR" />
+                <ScalarProperty Name="mois_trans" ColumnName="mois_trans" />
+                <ScalarProperty Name="annee_trans" ColumnName="annee_trans" />
+                <ScalarProperty Name="code_operant" ColumnName="code_operant" />
+                <ScalarProperty Name="date_bl" ColumnName="date_bl" />
+                <ScalarProperty Name="code_bl" ColumnName="code_bl" />
+                <ScalarProperty Name="nom_commercial" ColumnName="nom_commercial" />
+                <ScalarProperty Name="code_commercial" ColumnName="code_commercial" />
+                <ScalarProperty Name="libelle_secteur" ColumnName="libelle_secteur" />
+                <ScalarProperty Name="heure" ColumnName="heure" />
+                <ScalarProperty Name="facturier" ColumnName="facturier" />
+                <ScalarProperty Name="total_TTC" ColumnName="total_TTC" />
+                <ScalarProperty Name="T_remise" ColumnName="T_remise" />
+                <ScalarProperty Name="total_TVA" ColumnName="total_TVA" />
+                <ScalarProperty Name="total_HT" ColumnName="total_HT" />
+                <ScalarProperty Name="date_trans" ColumnName="date_trans" />
+                <ScalarProperty Name="cod_comp" ColumnName="cod_comp" />
+                <ScalarProperty Name="cod_wil" ColumnName="cod_wil" />
+                <ScalarProperty Name="statut_cvn" ColumnName="statut_cvn" />
+                <ScalarProperty Name="obj_FC" ColumnName="obj_FC" />
+                <ScalarProperty Name="superv" ColumnName="superv" />
+                <ScalarProperty Name="opperant" ColumnName="opperant" />
+                <ScalarProperty Name="SECT" ColumnName="SECT" />
+                <ScalarProperty Name="date_ref" ColumnName="date_ref" />
+                <ScalarProperty Name="num_ref" ColumnName="num_ref" />
+                <ScalarProperty Name="code_clien" ColumnName="code_clien" />
+                <ScalarProperty Name="num_trans" ColumnName="num_trans" />
+                <ScalarProperty Name="type_trans" ColumnName="type_trans" />
+                <ScalarProperty Name="entite" ColumnName="entite" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AF_MARGE_FACTURES">
+            <EntityTypeMapping TypeName="ExpFinanceModel.AF_MARGE_FACTURES">
+              <MappingFragment StoreEntitySet="AF_MARGE_FACTURES">
+                <ScalarProperty Name="Marge" ColumnName="Marge" />
+                <ScalarProperty Name="DATE_TRANS" ColumnName="DATE_TRANS" />
+                <ScalarProperty Name="NUM_TRANS" ColumnName="NUM_TRANS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AF_CLIENT">
+            <EntityTypeMapping TypeName="ExpFinanceModel.AF_CLIENT">
+              <MappingFragment StoreEntitySet="AF_CLIENT">
+                <ScalarProperty Name="L_Wilaya" ColumnName="L_Wilaya" />
+                <ScalarProperty Name="RC" ColumnName="RC" />
+                <ScalarProperty Name="code_aux" ColumnName="code_aux" />
+                <ScalarProperty Name="ID_FISC" ColumnName="ID_FISC" />
+                <ScalarProperty Name="CR_JR" ColumnName="CR_JR" />
+                <ScalarProperty Name="ville" ColumnName="ville" />
+                <ScalarProperty Name="Adesse" ColumnName="Adesse" />
+                <ScalarProperty Name="date_extraction" ColumnName="date_extraction" />
+                <ScalarProperty Name="cree_par" ColumnName="cree_par" />
+                <ScalarProperty Name="Heure_Creation" ColumnName="Heure_Creation" />
+                <ScalarProperty Name="Date_creation" ColumnName="Date_creation" />
+                <ScalarProperty Name="OBJECTIF_CVN" ColumnName="OBJECTIF_CVN" />
+                <ScalarProperty Name="PALIERCVN" ColumnName="PALIERCVN" />
+                <ScalarProperty Name="date_convention" ColumnName="date_convention" />
+                <ScalarProperty Name="chq_gar" ColumnName="chq_gar" />
+                <ScalarProperty Name="cvn_client" ColumnName="cvn_client" />
+                <ScalarProperty Name="rai_sveil" ColumnName="rai_sveil" />
+                <ScalarProperty Name="sup_veille" ColumnName="sup_veille" />
+                <ScalarProperty Name="raison_veil" ColumnName="raison_veil" />
+                <ScalarProperty Name="veille" ColumnName="veille" />
+                <ScalarProperty Name="obj_an" ColumnName="obj_an" />
+                <ScalarProperty Name="superv" ColumnName="superv" />
+                <ScalarProperty Name="cod_superv" ColumnName="cod_superv" />
+                <ScalarProperty Name="commercial" ColumnName="commercial" />
+                <ScalarProperty Name="cod_com" ColumnName="cod_com" />
+                <ScalarProperty Name="secteur" ColumnName="secteur" />
+                <ScalarProperty Name="cod_sect" ColumnName="cod_sect" />
+                <ScalarProperty Name="activite" ColumnName="activite" />
+                <ScalarProperty Name="cod_activ" ColumnName="cod_activ" />
+                <ScalarProperty Name="code_wil" ColumnName="code_wil" />
+                <ScalarProperty Name="NOM" ColumnName="NOM" />
+                <ScalarProperty Name="code_clien" ColumnName="code_clien" />
+                <ScalarProperty Name="entite" ColumnName="entite" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AF_FACTURE">
+            <EntityTypeMapping TypeName="ExpFinanceModel.AF_FACTURE">
+              <MappingFragment StoreEntitySet="AF_FACTURE">
+                <ScalarProperty Name="ID_GROUPE_FACT" ColumnName="ID_GROUPE_FACT" />
+                <ScalarProperty Name="MARGE" ColumnName="MARGE" />
+                <ScalarProperty Name="CODE_CLIENT" ColumnName="CODE_CLIENT" />
+                <ScalarProperty Name="MNT_TVA" ColumnName="MNT_TVA" />
+                <ScalarProperty Name="MNT_TTC" ColumnName="MNT_TTC" />
+                <ScalarProperty Name="MNT_RZ" ColumnName="MNT_RZ" />
+                <ScalarProperty Name="MNT_HT_RZ" ColumnName="MNT_HT_RZ" />
+                <ScalarProperty Name="DATE_FACT" ColumnName="DATE_FACT" />
+                <ScalarProperty Name="NUM_FACT" ColumnName="NUM_FACT" />
+                <ScalarProperty Name="ENTITE" ColumnName="ENTITE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AF_GROUPE_FACTURE">
+            <EntityTypeMapping TypeName="ExpFinanceModel.AF_GROUPE_FACTURE">
+              <MappingFragment StoreEntitySet="AF_GROUPE_FACTURE">
+                <ScalarProperty Name="DATE_DOSSIER" ColumnName="DATE_DOSSIER" />
+                <ScalarProperty Name="TX_DEP_ATTEINT" ColumnName="TX_DEP_ATTEINT" />
+                <ScalarProperty Name="DATE_MAJ" ColumnName="DATE_MAJ" />
+                <ScalarProperty Name="DATE_SAISIE" ColumnName="DATE_SAISIE" />
+                <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+                <ScalarProperty Name="NDOSSIER" ColumnName="NDOSSIER" />
+                <ScalarProperty Name="ETAT" ColumnName="ETAT" />
+                <ScalarProperty Name="TX_REST" ColumnName="TX_REST" />
+                <ScalarProperty Name="MARGE_REST" ColumnName="MARGE_REST" />
+                <ScalarProperty Name="NB_CADEAU" ColumnName="NB_CADEAU" />
+                <ScalarProperty Name="MONTANT_CADEAU" ColumnName="MONTANT_CADEAU" />
+                <ScalarProperty Name="OBSERVATION" ColumnName="OBSERVATION" />
+                <ScalarProperty Name="NOM_ENDOSSE" ColumnName="NOM_ENDOSSE" />
+                <ScalarProperty Name="TYPE_PROMOTION" ColumnName="TYPE_PROMOTION" />
+                <ScalarProperty Name="MONTANT_RISTOURNE" ColumnName="MONTANT_RISTOURNE" />
+                <ScalarProperty Name="DATE_RISTOURNE" ColumnName="DATE_RISTOURNE" />
+                <ScalarProperty Name="REF_RISTOURNE" ColumnName="REF_RISTOURNE" />
+                <ScalarProperty Name="MONTANT_CHEQUE" ColumnName="MONTANT_CHEQUE" />
+                <ScalarProperty Name="DATE_CHEQUE" ColumnName="DATE_CHEQUE" />
+                <ScalarProperty Name="AGENCE" ColumnName="AGENCE" />
+                <ScalarProperty Name="BANQUE" ColumnName="BANQUE" />
+                <ScalarProperty Name="REF_CHEQUE" ColumnName="REF_CHEQUE" />
+                <ScalarProperty Name="DATE_CADEAU" ColumnName="DATE_CADEAU" />
+                <ScalarProperty Name="LIBELLE_CADEAU" ColumnName="LIBELLE_CADEAU" />
+                <ScalarProperty Name="ID_LIGNE" ColumnName="ID_LIGNE" />
+                <ScalarProperty Name="REF_AVOIR_COMPT" ColumnName="REF_AVOIR_COMPT" />
+                <ScalarProperty Name="MARGE" ColumnName="MARGE" />
+                <ScalarProperty Name="MNT_TVA" ColumnName="MNT_TVA" />
+                <ScalarProperty Name="MNT_RZ" ColumnName="MNT_RZ" />
+                <ScalarProperty Name="MNT_TTC" ColumnName="MNT_TTC" />
+                <ScalarProperty Name="MNT_HT" ColumnName="MNT_HT" />
+                <ScalarProperty Name="CODE_CLIENT" ColumnName="CODE_CLIENT" />
+                <ScalarProperty Name="ENTITE" ColumnName="ENTITE" />
+                <ScalarProperty Name="ID_GROUPE_FACT" ColumnName="ID_GROUPE_FACT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LISTE_SPONSOR">
+            <EntityTypeMapping TypeName="ExpFinanceModel.LISTE_SPONSOR">
+              <MappingFragment StoreEntitySet="LISTE_SPONSOR">
+                <ScalarProperty Name="CODE_TYPE_SP" ColumnName="CODE_TYPE_SP" />
+                <ScalarProperty Name="NOM_SP" ColumnName="NOM_SP" />
+                <ScalarProperty Name="CODE_SP" ColumnName="CODE_SP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SPONSORISER">
+            <EntityTypeMapping TypeName="ExpFinanceModel.SPONSORISER">
+              <MappingFragment StoreEntitySet="SPONSORISER">
+                <ScalarProperty Name="TAUX_PARTICIPATION" ColumnName="TAUX_PARTICIPATION" />
+                <ScalarProperty Name="CODE_SP" ColumnName="CODE_SP" />
+                <ScalarProperty Name="ID_LIGNE" ColumnName="ID_LIGNE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AF_ETAT_AVOIR">
+            <EntityTypeMapping TypeName="ExpFinanceModel.AF_ETAT_AVOIR">
+              <MappingFragment StoreEntitySet="AF_ETAT_AVOIR">
+                <ScalarProperty Name="dateHeure" ColumnName="dateHeure" />
+                <ScalarProperty Name="observation" ColumnName="observation" />
+                <ScalarProperty Name="Etat" ColumnName="Etat" />
+                <ScalarProperty Name="numAvoir" ColumnName="numAvoir" />
+                <ScalarProperty Name="numDossier" ColumnName="numDossier" />
+                <ScalarProperty Name="IDG" ColumnName="IDG" />
+                <ScalarProperty Name="pkey" ColumnName="pkey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AF_AVOIR_GROUPE">
+            <EntityTypeMapping TypeName="ExpFinanceModel.AF_AVOIR_GROUPE">
+              <MappingFragment StoreEntitySet="AF_AVOIR_GROUPE">
+                <ScalarProperty Name="Libre" ColumnName="Libre" />
+                <ScalarProperty Name="IDG" ColumnName="IDG" />
+                <ScalarProperty Name="numAvoir" ColumnName="numAvoir" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="AF_GET_LIGNES_FACTURE" FunctionName="ExpFinanceModel.Store.AF_GET_LIGNES_FACTURE">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ExpFinanceModel.AF_GET_LIGNES_FACTURE_Result">
+                <ScalarProperty Name="Ix_Ligne" ColumnName="Ix_Ligne" />
+                <ScalarProperty Name="CODE_PROD" ColumnName="CODE_PROD" />
+                <ScalarProperty Name="num_lot" ColumnName="num_lot" />
+                <ScalarProperty Name="Qte_Trans" ColumnName="Qte_Trans" />
+                <ScalarProperty Name="VAL_HT" ColumnName="VAL_HT" />
+                <ScalarProperty Name="Val_Rz" ColumnName="Val_Rz" />
+                <ScalarProperty Name="VAL_TVA" ColumnName="VAL_TVA" />
+                <ScalarProperty Name="Marge" ColumnName="Marge" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="AF_UTILISATEUR">
+            <EntityTypeMapping TypeName="ExpFinanceModel.AF_UTILISATEUR">
+              <MappingFragment StoreEntitySet="AF_UTILISATEUR">
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AF_LIGNE_FACTURE">
+            <EntityTypeMapping TypeName="ExpFinanceModel.AF_LIGNE_FACTURE">
+              <MappingFragment StoreEntitySet="AF_LIGNE_FACTURE">
+                <ScalarProperty Name="NUM_LIGNE" ColumnName="NUM_LIGNE" />
+                <ScalarProperty Name="DATE_FACT" ColumnName="DATE_FACT" />
+                <ScalarProperty Name="NUM_FACT" ColumnName="NUM_FACT" />
+                <ScalarProperty Name="ENTITE" ColumnName="ENTITE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AF_PALIER_EF">
+            <EntityTypeMapping TypeName="ExpFinanceModel.AF_PALIER_EF">
+              <MappingFragment StoreEntitySet="AF_PALIER_EF">
+                <ScalarProperty Name="actif" ColumnName="actif" />
+                <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+                <ScalarProperty Name="FinPalier" ColumnName="FinPalier" />
+                <ScalarProperty Name="DebutPalier" ColumnName="DebutPalier" />
+                <ScalarProperty Name="idPalier" ColumnName="idPalier" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AF_FACTURES_CLIENTS_ALL">
+            <EntityTypeMapping TypeName="ExpFinanceModel.AF_FACTURES_CLIENTS_ALL">
+              <MappingFragment StoreEntitySet="AF_FACTURES_CLIENTS_ALL">
+                <ScalarProperty Name="Marge" ColumnName="Marge" />
+                <ScalarProperty Name="DATEECH" ColumnName="DATEECH" />
+                <ScalarProperty Name="CRJRE" ColumnName="CRJRE" />
+                <ScalarProperty Name="CRJR" ColumnName="CRJR" />
+                <ScalarProperty Name="mois_trans" ColumnName="mois_trans" />
+                <ScalarProperty Name="annee_trans" ColumnName="annee_trans" />
+                <ScalarProperty Name="code_operant" ColumnName="code_operant" />
+                <ScalarProperty Name="date_bl" ColumnName="date_bl" />
+                <ScalarProperty Name="code_bl" ColumnName="code_bl" />
+                <ScalarProperty Name="nom_commercial" ColumnName="nom_commercial" />
+                <ScalarProperty Name="code_commercial" ColumnName="code_commercial" />
+                <ScalarProperty Name="libelle_secteur" ColumnName="libelle_secteur" />
+                <ScalarProperty Name="heure" ColumnName="heure" />
+                <ScalarProperty Name="facturier" ColumnName="facturier" />
+                <ScalarProperty Name="total_TTC" ColumnName="total_TTC" />
+                <ScalarProperty Name="T_remise" ColumnName="T_remise" />
+                <ScalarProperty Name="total_TVA" ColumnName="total_TVA" />
+                <ScalarProperty Name="total_HT" ColumnName="total_HT" />
+                <ScalarProperty Name="date_trans" ColumnName="date_trans" />
+                <ScalarProperty Name="cod_comp" ColumnName="cod_comp" />
+                <ScalarProperty Name="cod_wil" ColumnName="cod_wil" />
+                <ScalarProperty Name="statut_cvn" ColumnName="statut_cvn" />
+                <ScalarProperty Name="obj_FC" ColumnName="obj_FC" />
+                <ScalarProperty Name="superv" ColumnName="superv" />
+                <ScalarProperty Name="opperant" ColumnName="opperant" />
+                <ScalarProperty Name="SECT" ColumnName="SECT" />
+                <ScalarProperty Name="date_ref" ColumnName="date_ref" />
+                <ScalarProperty Name="num_ref" ColumnName="num_ref" />
+                <ScalarProperty Name="code_clien" ColumnName="code_clien" />
+                <ScalarProperty Name="num_trans" ColumnName="num_trans" />
+                <ScalarProperty Name="type_trans" ColumnName="type_trans" />
+                <ScalarProperty Name="entite" ColumnName="entite" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AF_EF_FACTURE">
+            <EntityTypeMapping TypeName="ExpFinanceModel.AF_EF_FACTURE">
+              <MappingFragment StoreEntitySet="AF_EF_FACTURE">
+                <ScalarProperty Name="ID_GROUPE_FACT" ColumnName="ID_GROUPE_FACT" />
+                <ScalarProperty Name="MARGE" ColumnName="MARGE" />
+                <ScalarProperty Name="CODE_CLIENT" ColumnName="CODE_CLIENT" />
+                <ScalarProperty Name="MNT_TVA" ColumnName="MNT_TVA" />
+                <ScalarProperty Name="MNT_TTC" ColumnName="MNT_TTC" />
+                <ScalarProperty Name="MNT_RZ" ColumnName="MNT_RZ" />
+                <ScalarProperty Name="MNT_HT_RZ" ColumnName="MNT_HT_RZ" />
+                <ScalarProperty Name="DATE_FACT" ColumnName="DATE_FACT" />
+                <ScalarProperty Name="NUM_FACT" ColumnName="NUM_FACT" />
+                <ScalarProperty Name="ENTITE" ColumnName="ENTITE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AF_EF_GROUPE_FACTURE">
+            <EntityTypeMapping TypeName="ExpFinanceModel.AF_EF_GROUPE_FACTURE">
+              <MappingFragment StoreEntitySet="AF_EF_GROUPE_FACTURE">
+                <ScalarProperty Name="DATE_DOSSIER" ColumnName="DATE_DOSSIER" />
+                <ScalarProperty Name="TX_DEP_ATTEINT" ColumnName="TX_DEP_ATTEINT" />
+                <ScalarProperty Name="DATE_MAJ" ColumnName="DATE_MAJ" />
+                <ScalarProperty Name="DATE_SAISIE" ColumnName="DATE_SAISIE" />
+                <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+                <ScalarProperty Name="NDOSSIER" ColumnName="NDOSSIER" />
+                <ScalarProperty Name="ETAT" ColumnName="ETAT" />
+                <ScalarProperty Name="TX_REST" ColumnName="TX_REST" />
+                <ScalarProperty Name="MARGE_REST" ColumnName="MARGE_REST" />
+                <ScalarProperty Name="NB_CADEAU" ColumnName="NB_CADEAU" />
+                <ScalarProperty Name="MONTANT_CADEAU" ColumnName="MONTANT_CADEAU" />
+                <ScalarProperty Name="OBSERVATION" ColumnName="OBSERVATION" />
+                <ScalarProperty Name="NOM_ENDOSSE" ColumnName="NOM_ENDOSSE" />
+                <ScalarProperty Name="TYPE_PROMOTION" ColumnName="TYPE_PROMOTION" />
+                <ScalarProperty Name="MONTANT_RISTOURNE" ColumnName="MONTANT_RISTOURNE" />
+                <ScalarProperty Name="DATE_RISTOURNE" ColumnName="DATE_RISTOURNE" />
+                <ScalarProperty Name="REF_RISTOURNE" ColumnName="REF_RISTOURNE" />
+                <ScalarProperty Name="MONTANT_CHEQUE" ColumnName="MONTANT_CHEQUE" />
+                <ScalarProperty Name="DATE_CHEQUE" ColumnName="DATE_CHEQUE" />
+                <ScalarProperty Name="AGENCE" ColumnName="AGENCE" />
+                <ScalarProperty Name="BANQUE" ColumnName="BANQUE" />
+                <ScalarProperty Name="REF_CHEQUE" ColumnName="REF_CHEQUE" />
+                <ScalarProperty Name="DATE_CADEAU" ColumnName="DATE_CADEAU" />
+                <ScalarProperty Name="LIBELLE_CADEAU" ColumnName="LIBELLE_CADEAU" />
+                <ScalarProperty Name="ID_LIGNE" ColumnName="ID_LIGNE" />
+                <ScalarProperty Name="REF_AVOIR_COMPT" ColumnName="REF_AVOIR_COMPT" />
+                <ScalarProperty Name="MARGE" ColumnName="MARGE" />
+                <ScalarProperty Name="MNT_TVA" ColumnName="MNT_TVA" />
+                <ScalarProperty Name="MNT_RZ" ColumnName="MNT_RZ" />
+                <ScalarProperty Name="MNT_TTC" ColumnName="MNT_TTC" />
+                <ScalarProperty Name="MNT_HT" ColumnName="MNT_HT" />
+                <ScalarProperty Name="CODE_CLIENT" ColumnName="CODE_CLIENT" />
+                <ScalarProperty Name="ENTITE" ColumnName="ENTITE" />
+                <ScalarProperty Name="ID_GROUPE_FACT" ColumnName="ID_GROUPE_FACT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AF_EF_LIGNE_FACTURE">
+            <EntityTypeMapping TypeName="ExpFinanceModel.AF_EF_LIGNE_FACTURE">
+              <MappingFragment StoreEntitySet="AF_EF_LIGNE_FACTURE">
+                <ScalarProperty Name="NUM_LIGNE" ColumnName="NUM_LIGNE" />
+                <ScalarProperty Name="DATE_FACT" ColumnName="DATE_FACT" />
+                <ScalarProperty Name="NUM_FACT" ColumnName="NUM_FACT" />
+                <ScalarProperty Name="ENTITE" ColumnName="ENTITE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AF_TEMP_AVOIR_FINANCIER">
+            <EntityTypeMapping TypeName="ExpFinanceModel.AF_TEMP_AVOIR_FINANCIER">
+              <MappingFragment StoreEntitySet="AF_TEMP_AVOIR_FINANCIER">
+                <ScalarProperty Name="typeAvoir" ColumnName="typeAvoir" />
+                <ScalarProperty Name="Observation" ColumnName="Observation" />
+                <ScalarProperty Name="montantCreance" ColumnName="montantCreance" />
+                <ScalarProperty Name="montantCheque" ColumnName="montantCheque" />
+                <ScalarProperty Name="designation" ColumnName="designation" />
+                <ScalarProperty Name="numAvoirComptable" ColumnName="numAvoirComptable" />
+                <ScalarProperty Name="montant" ColumnName="montant" />
+                <ScalarProperty Name="dateAvoir" ColumnName="dateAvoir" />
+                <ScalarProperty Name="numAvoir" ColumnName="numAvoir" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AF_TEMP_AVOIR_GROUPE">
+            <EntityTypeMapping TypeName="ExpFinanceModel.AF_TEMP_AVOIR_GROUPE">
+              <MappingFragment StoreEntitySet="AF_TEMP_AVOIR_GROUPE">
+                <ScalarProperty Name="Libre" ColumnName="Libre" />
+                <ScalarProperty Name="IDG" ColumnName="IDG" />
+                <ScalarProperty Name="numAvoir" ColumnName="numAvoir" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AF_TEMP_DATA">
+            <EntityTypeMapping TypeName="ExpFinanceModel.AF_TEMP_DATA">
+              <MappingFragment StoreEntitySet="AF_TEMP_DATA">
+                <ScalarProperty Name="idgroupe" ColumnName="idgroupe" />
+                <ScalarProperty Name="entite" ColumnName="entite" />
+                <ScalarProperty Name="factures" ColumnName="factures" />
+                <ScalarProperty Name="codeClient" ColumnName="codeClient" />
+                <ScalarProperty Name="typeAvoir" ColumnName="typeAvoir" />
+                <ScalarProperty Name="creance" ColumnName="creance" />
+                <ScalarProperty Name="cheque" ColumnName="cheque" />
+                <ScalarProperty Name="Montant" ColumnName="Montant" />
+                <ScalarProperty Name="dateAvoir" ColumnName="dateAvoir" />
+                <ScalarProperty Name="numAvoir" ColumnName="numAvoir" />
+                <ScalarProperty Name="refAvoir" ColumnName="refAvoir" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AF_TEMP_ETAT_AVOIR">
+            <EntityTypeMapping TypeName="ExpFinanceModel.AF_TEMP_ETAT_AVOIR">
+              <MappingFragment StoreEntitySet="AF_TEMP_ETAT_AVOIR">
+                <ScalarProperty Name="dateHeure" ColumnName="dateHeure" />
+                <ScalarProperty Name="observation" ColumnName="observation" />
+                <ScalarProperty Name="Etat" ColumnName="Etat" />
+                <ScalarProperty Name="numAvoir" ColumnName="numAvoir" />
+                <ScalarProperty Name="numDossier" ColumnName="numDossier" />
+                <ScalarProperty Name="IDG" ColumnName="IDG" />
+                <ScalarProperty Name="pkey" ColumnName="pkey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AF_TEMP_FACTURE">
+            <EntityTypeMapping TypeName="ExpFinanceModel.AF_TEMP_FACTURE">
+              <MappingFragment StoreEntitySet="AF_TEMP_FACTURE">
+                <ScalarProperty Name="ID_GROUPE_FACT" ColumnName="ID_GROUPE_FACT" />
+                <ScalarProperty Name="MARGE" ColumnName="MARGE" />
+                <ScalarProperty Name="CODE_CLIENT" ColumnName="CODE_CLIENT" />
+                <ScalarProperty Name="MNT_TVA" ColumnName="MNT_TVA" />
+                <ScalarProperty Name="MNT_TTC" ColumnName="MNT_TTC" />
+                <ScalarProperty Name="MNT_RZ" ColumnName="MNT_RZ" />
+                <ScalarProperty Name="MNT_HT_RZ" ColumnName="MNT_HT_RZ" />
+                <ScalarProperty Name="DATE_FACT" ColumnName="DATE_FACT" />
+                <ScalarProperty Name="NUM_FACT" ColumnName="NUM_FACT" />
+                <ScalarProperty Name="ENTITE" ColumnName="ENTITE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AF_TEMP_GROUPE_FACTURE">
+            <EntityTypeMapping TypeName="ExpFinanceModel.AF_TEMP_GROUPE_FACTURE">
+              <MappingFragment StoreEntitySet="AF_TEMP_GROUPE_FACTURE">
+                <ScalarProperty Name="DATE_DOSSIER" ColumnName="DATE_DOSSIER" />
+                <ScalarProperty Name="TX_DEP_ATTEINT" ColumnName="TX_DEP_ATTEINT" />
+                <ScalarProperty Name="DATE_MAJ" ColumnName="DATE_MAJ" />
+                <ScalarProperty Name="DATE_SAISIE" ColumnName="DATE_SAISIE" />
+                <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+                <ScalarProperty Name="NDOSSIER" ColumnName="NDOSSIER" />
+                <ScalarProperty Name="ETAT" ColumnName="ETAT" />
+                <ScalarProperty Name="TX_REST" ColumnName="TX_REST" />
+                <ScalarProperty Name="MARGE_REST" ColumnName="MARGE_REST" />
+                <ScalarProperty Name="NB_CADEAU" ColumnName="NB_CADEAU" />
+                <ScalarProperty Name="MONTANT_CADEAU" ColumnName="MONTANT_CADEAU" />
+                <ScalarProperty Name="OBSERVATION" ColumnName="OBSERVATION" />
+                <ScalarProperty Name="NOM_ENDOSSE" ColumnName="NOM_ENDOSSE" />
+                <ScalarProperty Name="TYPE_PROMOTION" ColumnName="TYPE_PROMOTION" />
+                <ScalarProperty Name="MONTANT_RISTOURNE" ColumnName="MONTANT_RISTOURNE" />
+                <ScalarProperty Name="DATE_RISTOURNE" ColumnName="DATE_RISTOURNE" />
+                <ScalarProperty Name="REF_RISTOURNE" ColumnName="REF_RISTOURNE" />
+                <ScalarProperty Name="MONTANT_CHEQUE" ColumnName="MONTANT_CHEQUE" />
+                <ScalarProperty Name="DATE_CHEQUE" ColumnName="DATE_CHEQUE" />
+                <ScalarProperty Name="AGENCE" ColumnName="AGENCE" />
+                <ScalarProperty Name="BANQUE" ColumnName="BANQUE" />
+                <ScalarProperty Name="REF_CHEQUE" ColumnName="REF_CHEQUE" />
+                <ScalarProperty Name="DATE_CADEAU" ColumnName="DATE_CADEAU" />
+                <ScalarProperty Name="LIBELLE_CADEAU" ColumnName="LIBELLE_CADEAU" />
+                <ScalarProperty Name="ID_LIGNE" ColumnName="ID_LIGNE" />
+                <ScalarProperty Name="REF_AVOIR_COMPT" ColumnName="REF_AVOIR_COMPT" />
+                <ScalarProperty Name="MARGE" ColumnName="MARGE" />
+                <ScalarProperty Name="MNT_TVA" ColumnName="MNT_TVA" />
+                <ScalarProperty Name="MNT_RZ" ColumnName="MNT_RZ" />
+                <ScalarProperty Name="MNT_TTC" ColumnName="MNT_TTC" />
+                <ScalarProperty Name="MNT_HT" ColumnName="MNT_HT" />
+                <ScalarProperty Name="CODE_CLIENT" ColumnName="CODE_CLIENT" />
+                <ScalarProperty Name="ENTITE" ColumnName="ENTITE" />
+                <ScalarProperty Name="ID_GROUPE_FACT" ColumnName="ID_GROUPE_FACT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AF_TEMP_DATA_ANT">
+            <EntityTypeMapping TypeName="ExpFinanceModel.AF_TEMP_DATA_ANT">
+              <MappingFragment StoreEntitySet="AF_TEMP_DATA_ANT">
+                <ScalarProperty Name="idgroupe" ColumnName="idgroupe" />
+                <ScalarProperty Name="entite" ColumnName="entite" />
+                <ScalarProperty Name="factures" ColumnName="factures" />
+                <ScalarProperty Name="codeClient" ColumnName="codeClient" />
+                <ScalarProperty Name="Exercice" ColumnName="Exercice" />
+                <ScalarProperty Name="CA" ColumnName="CA" />
+                <ScalarProperty Name="typeAvoir" ColumnName="typeAvoir" />
+                <ScalarProperty Name="creance" ColumnName="creance" />
+                <ScalarProperty Name="cheque" ColumnName="cheque" />
+                <ScalarProperty Name="Montant" ColumnName="Montant" />
+                <ScalarProperty Name="dateAvoir" ColumnName="dateAvoir" />
+                <ScalarProperty Name="numAvoir" ColumnName="numAvoir" />
+                <ScalarProperty Name="refAvoir" ColumnName="refAvoir" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AF_FACTURES_CLIENTS_ALL_YEARS">
+            <EntityTypeMapping TypeName="ExpFinanceModel.AF_FACTURES_CLIENTS_ALL_YEARS">
+              <MappingFragment StoreEntitySet="AF_FACTURES_CLIENTS_ALL_YEARS">
+                <ScalarProperty Name="Marge" ColumnName="Marge" />
+                <ScalarProperty Name="DATEECH" ColumnName="DATEECH" />
+                <ScalarProperty Name="CRJRE" ColumnName="CRJRE" />
+                <ScalarProperty Name="CRJR" ColumnName="CRJR" />
+                <ScalarProperty Name="mois_trans" ColumnName="mois_trans" />
+                <ScalarProperty Name="annee_trans" ColumnName="annee_trans" />
+                <ScalarProperty Name="code_operant" ColumnName="code_operant" />
+                <ScalarProperty Name="date_bl" ColumnName="date_bl" />
+                <ScalarProperty Name="code_bl" ColumnName="code_bl" />
+                <ScalarProperty Name="nom_commercial" ColumnName="nom_commercial" />
+                <ScalarProperty Name="code_commercial" ColumnName="code_commercial" />
+                <ScalarProperty Name="libelle_secteur" ColumnName="libelle_secteur" />
+                <ScalarProperty Name="heure" ColumnName="heure" />
+                <ScalarProperty Name="facturier" ColumnName="facturier" />
+                <ScalarProperty Name="total_TTC" ColumnName="total_TTC" />
+                <ScalarProperty Name="T_remise" ColumnName="T_remise" />
+                <ScalarProperty Name="total_TVA" ColumnName="total_TVA" />
+                <ScalarProperty Name="total_HT" ColumnName="total_HT" />
+                <ScalarProperty Name="date_trans" ColumnName="date_trans" />
+                <ScalarProperty Name="cod_comp" ColumnName="cod_comp" />
+                <ScalarProperty Name="cod_wil" ColumnName="cod_wil" />
+                <ScalarProperty Name="statut_cvn" ColumnName="statut_cvn" />
+                <ScalarProperty Name="obj_FC" ColumnName="obj_FC" />
+                <ScalarProperty Name="superv" ColumnName="superv" />
+                <ScalarProperty Name="opperant" ColumnName="opperant" />
+                <ScalarProperty Name="SECT" ColumnName="SECT" />
+                <ScalarProperty Name="date_ref" ColumnName="date_ref" />
+                <ScalarProperty Name="num_ref" ColumnName="num_ref" />
+                <ScalarProperty Name="code_clien" ColumnName="code_clien" />
+                <ScalarProperty Name="num_trans" ColumnName="num_trans" />
+                <ScalarProperty Name="type_trans" ColumnName="type_trans" />
+                <ScalarProperty Name="entite" ColumnName="entite" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AF_OPS_LOG">
+            <EntityTypeMapping TypeName="ExpFinanceModel.AF_OPS_LOG">
+              <MappingFragment StoreEntitySet="AF_OPS_LOG">
+                <ScalarProperty Name="idg" ColumnName="idg" />
+                <ScalarProperty Name="instant" ColumnName="instant" />
+                <ScalarProperty Name="numdossier" ColumnName="numdossier" />
+                <ScalarProperty Name="numavoir" ColumnName="numavoir" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="Operation" ColumnName="Operation" />
+                <ScalarProperty Name="pkey" ColumnName="pkey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
